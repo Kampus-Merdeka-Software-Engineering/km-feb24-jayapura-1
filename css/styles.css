@@ -7,14 +7,6 @@ body {
     font-family: "Montserrat", sans-serif;
   }
   
-  .text-primary {
-    color: #666666;
-  }
-  
-  .font-weight-bold {
-    font-weight: 600;
-  }
-  
   .grid-container {
     display: grid;
     grid-template-columns: 260px 1fr 1fr 1fr;
@@ -39,6 +31,12 @@ body {
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
   }
   
+  h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #005FB1;
+  }
+
   .menu-icon {
     display: none;
   }
@@ -49,8 +47,8 @@ body {
   #sidebar {
     grid-area: sidebar;
     height: 100%;
-    background-color: #21232d;
-    color: #9799ab;
+    background-color: #0070CB;
+    color: #F2F2F2;
     overflow-y: auto;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
@@ -84,18 +82,12 @@ body {
   
   .sidebar-list-item > a {
     text-decoration: none;
-    color: #9799ab;
+    color: #F2F2F2;
   }
   
   .sidebar-responsive {
     display: inline !important;
     position: absolute;
-    /*
-      the z-index of the ApexCharts is 11
-      we want the z-index of the sidebar higher so that
-      the charts are not showing over the sidebar 
-      on small screens
-    */
     z-index: 12 !important;
   }
   
@@ -107,21 +99,36 @@ body {
     overflow-y: auto;
     padding: 20px 20px;
   }
+ 
+  #filter {
+    background-color: none;
+    display: grid;
+    grid-template-columns: 200px 0fr 200px 1fr;
+    gap: 12px;
+    height: 30px;
+    margin-bottom: 20px;
+  }
+
+  #display-area {
+    padding: 10px;
+  }
   
-  .main-title {
+  #Location, #Product, #DateRange {
     display: flex;
-    justify-content: space-between;
+    height: 40px;
+    width: 200px;
+    padding-inline: 15px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    border-color: #F2F2F2;
+    font-size: 20;
+    color: #4D4D4D;
   }
-  
-  .main-title > p {
-    font-size: 20px;
-  }
-  
+
   .main-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    margin: 20px 0;
   }
   
   .card {
@@ -129,58 +136,44 @@ body {
     flex-direction: column;
     justify-content: space-around;
     padding: 25px;
-    background-color: #ffffff;
+    margin-bottom: 30px;
+    background-color: #C6ECFF;
     box-sizing: border-box;
-    border: 1px solid #d2d2d3;
-    border-radius: 5px;
-    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card:first-child {
-    border-left: 7px solid #246dec;
-  }
-  
-  .card:nth-child(2) {
-    border-left: 7px solid #f5b74f;
-  }
-
-  .card:nth-child(3) {
-    border-left: 7px solid #f24ff5;
+    border-radius:15px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: #00234C;
   }
    
-  .card > span {
+  .card > h3 {
     font-size: 20px;
+    font-weight: 400;
+  }
+
+  .card > span {
+    font-size: 32px;
     font-weight: 600;
   }
   
-  .card-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .card-inner > p {
-    font-size: 18px;
-  }
-  
-  .charts {
+  .charts, table {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
   }
   
-  .charts-card {
+  .charts-card, .table-card {
     background-color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 25px;
     box-sizing: border-box;
     -webkit-column-break-inside: avoid;
-    border: 1px solid #d2d2d3;
-    border-radius: 5px;
-    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.4);
+    /* height sementara */
+    height: 250px;
   }
   
-  .chart-title {
+  .chart-title, .table-title {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -260,8 +253,8 @@ body {
 
 /* FOOTER */
   footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #F2F2F2;
+    color: #005FB1;
     text-align: center;
     padding: 10px;
 }

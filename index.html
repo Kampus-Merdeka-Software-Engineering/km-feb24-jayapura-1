@@ -18,19 +18,16 @@
 <body>
     <div class="grid-container">
         <header class="header">
-            <!-- <div class="menu-icon" onclick="openSidebar()">
-              <span>menu</span>
-            </div> -->
             <div class="header-left">
-              <span>search</span>
+                <h2>Dashboard</h2>
             </div>
             <div class="header-right">
+                <span>search</span>
             </div>
         </header>
 
         <aside id="sidebar">
             <div class="sidebar-title">Team 1 Jayapura
-            <!-- <span onclick="closeSidebar()">close</span> -->
             </div>
     
             <ul class="sidebar-list">
@@ -38,72 +35,83 @@
                 <a href="#" target="_blank">Dashboard</a>
             </li>
             <li class="sidebar-list-item">
-                <a href="#" target="_blank">Products</a>
+                <a href="#" target="_blank">Table</a>
             </li>
             <li class="sidebar-list-item">
-                <a href="#" target="_blank">Inventory</a>
+                <a href="#" target="_blank">Charts</a>
             </li>
             <li class="sidebar-list-item">
-                <a href="#" target="_blank">Sales Orders</a>
-            </li>
-            <li class="sidebar-list-item">
-                <a href="#" target="_blank">Reports</a>
-            </li>
-            <li class="sidebar-list-item">
-                <a href="#" target="_blank">Settings</a>
+                <a href="#" target="_blank">About</a>
             </li>
             </ul>
         </aside>
 
         <!-- Main -->
         <main class="main-container">
-        <div class="main-title">
-            <p class="font-weight-bold">DASHBOARD</p>
-        </div>
-    
-        <section class="main-cards">
-    
-            <div class="card">
-            <div class="card-inner">
-                <p class="text-primary">PRODUCTS</p>
-            </div>
-            <span class="text-primary font-weight-bold">249</span>
-            </div>
-    
-            <div class="card">
-            <div class="card-inner">
-                <p class="text-primary">PURCHASE ORDERS</p>
-            </div>
-            <span class="text-primary font-weight-bold">83</span>
-            </div>
+            <!-- Filter -->
+            <section id="filter">
+                <select id="Location" onchange="filterContent(event)">
+                    <option value="all">Location</option>
+                    <option value="GuttenPlans">GuttenPlans</option>
+                    <option value="EB Public Library">EB Public Library</option>
+                    <option value="Brunswick SQ Mall">Brunswick SQ Mall</option>
+                    <option value="Brunswick SQ Mall">Earle Asphalt</option>
+                </select>
+                <select id="Product" onchange="filterContent(event)">
+                    <option value="all">Product</option>
+                    <option value="GuttenPlans">GuttenPlans</option>
+                    <option value="EB Public Library">EB Public Library</option>
+                    <option value="Brunswick SQ Mall">Brunswick SQ Mall</option>
+                    <option value="Brunswick SQ Mall">Earle Asphalt</option>
+                </select>
+                <select id="DateRange" onchange="filterContent(event)">
+                   
+                </select>
+            </section>
 
-            <div class="card">
-                <div class="card-inner">
-                    <p class="text-primary">APA AJA BOLEH</p>
+            <section id="display-area">
+  
+            </section>
+            
+            <!-- Cards -->
+            <section class="main-cards">
+                <div class="card">
+                    <h3>Total Income</h3>
+                    <span>249</span>
                 </div>
-                <span class="text-primary font-weight-bold">123</span>
-            </div>
+                <div class="card">
+                    <h3>Sales Volume</h3>
+                    <span>83</span>
+                </div>
+                <div class="card">
+                    <h3>Quantity of Product Sold</h3>
+                    <span>123</span>
+                </div>
+            </section>
+        
+            <!-- Charts -->
+            <section class="charts">
+                <div class="charts-card">
+                    <p class="chart-title">Ini diisi chart</p>
+                </div>
+            </section>
 
-        </section>
-    
-        <div class="charts">
-    
-            <div class="charts-card">
-            <p class="chart-title">Top 5 Products</p>
-            </div>
-    
-            <div class="charts-card">
-            <p class="chart-title">Purchase and Sales Orders</p>
-            </div>
-    
-        </div>
+            <!-- Table -->
+            <section class="table">
+                <div class="table-card">
+                    <p class="table-title">Ini diisi Table</p>
+                </div>
+            </section>
+
         </main>
     </div>
 
-
+    <!-- Footer -->
     <footer>
-        <p>&copy; Team 1 Jayapura 2024</p>
+        <p>&copy; Dashboard by Team 1 Jayapura</p>
     </footer>
+
+    <script src="js/scripts.js"></script>
 
 </body>
 
