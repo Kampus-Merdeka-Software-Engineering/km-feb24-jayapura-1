@@ -253,8 +253,10 @@ body {
 
 /* FOOTER */
   footer {
+    display: flex;
+    justify-content: center;
     background-color: #F2F2F2;
     color: #005FB1;
-    text-align: center;
+    /* text-align: center; */
     padding: 10px;
 }
