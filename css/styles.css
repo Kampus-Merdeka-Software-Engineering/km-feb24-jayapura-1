@@ -67,12 +67,17 @@ body {
   
   .sidebar-list {
     padding: 0;
-    margin-top: 15px;
+    margin: 15px;
     list-style-type: none;
   }
   
   .sidebar-list-item {
     padding: 20px 20px 20px 20px;
+    border-radius: 1vh;
+  }
+
+  .sidebar-list-item img {
+    margin-right: 10px;
   }
   
   .sidebar-list-item:hover {
@@ -257,6 +262,5 @@ body {
     justify-content: center;
     background-color: #F2F2F2;
     color: #005FB1;
-    /* text-align: center; */
     padding: 10px;
 }
