@@ -31,7 +31,7 @@ body {
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
   }
   
-  h2 {
+  .header h2 {
     font-size: 30px;
     font-weight: bold;
     color: #005FB1;
