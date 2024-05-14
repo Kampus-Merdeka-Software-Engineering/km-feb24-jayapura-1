@@ -72,11 +72,21 @@ body {
   }
   
   .sidebar-list-item {
-    padding: 20px 20px 20px 20px;
+    margin: 15px 0;
+    /* padding: 20px 20px 20px 20px; */
     border-radius: 1vh;
   }
 
-  .sidebar-list-item img {
+  .sidebar-list-item a {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    text-decoration: none;
+    color: #F2F2F2;
+  }
+  
+
+  .sidebar-list-item a img {
     margin-right: 10px;
   }
   
@@ -85,11 +95,7 @@ body {
     cursor: pointer;
   }
   
-  .sidebar-list-item > a {
-    text-decoration: none;
-    color: #F2F2F2;
-  }
-  
+ 
   .sidebar-responsive {
     display: inline !important;
     position: absolute;
