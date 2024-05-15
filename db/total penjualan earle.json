@@ -1,0 +1,666 @@
+[{
+  "product": "CheezIt - Original",
+  "rprice": "1.5",
+  "bulan": "7",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Coca Cola - Zero Sugar",
+  "rprice": "1.5",
+  "bulan": "7",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Goldfish Baked - Cheddar",
+  "rprice": "1.25",
+  "bulan": "7",
+  "jumlah_penjualan": "4"
+}, {
+  "product": "Hungry Buddha - Chocolate Chip",
+  "rprice": "2.0",
+  "bulan": "7",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Keto Bar - Creamy Peanut Butter Chocolate",
+  "rprice": "2.0",
+  "bulan": "7",
+  "jumlah_penjualan": "8"
+}, {
+  "product": "KitKat - Crisp Wafers",
+  "rprice": "1.75",
+  "bulan": "7",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Made in Nature - Mangoes Sweet \u0026 Tangy",
+  "rprice": "2.0",
+  "bulan": "7",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Miss Vickie\u0027s Potato Chip - Jalapeno",
+  "rprice": "1.5",
+  "bulan": "7",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Monster Energy  Zero Ultra",
+  "rprice": "3.0",
+  "bulan": "7",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Newtons Fig Bar",
+  "rprice": "1.5",
+  "bulan": "7",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Oreo Mini",
+  "rprice": "1.5",
+  "bulan": "7",
+  "jumlah_penjualan": "8"
+}, {
+  "product": "Pop Corners - Kettle Corn",
+  "rprice": "1.5",
+  "bulan": "7",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Pop Corners - Sea Salt",
+  "rprice": "1.5",
+  "bulan": "7",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Pop Corners - Spicy Queso",
+  "rprice": "1.5",
+  "bulan": "7",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Pop Corners - White Cheddar",
+  "rprice": "1.5",
+  "bulan": "7",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "RXBAR - Protein Bar - Peanut Butter",
+  "rprice": "2.0",
+  "bulan": "7",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Robert Irvine\u0027s - Fit Crunch -  Chocolate Pea",
+  "rprice": "2.0",
+  "bulan": "7",
+  "jumlah_penjualan": "10"
+}, {
+  "product": "S. Pellegrino Essenza Mineral Water - Blood O",
+  "rprice": "2.5",
+  "bulan": "7",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Seapoint Farms Dry Roasted Edamame - Wasabi",
+  "rprice": "2.5",
+  "bulan": "7",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Snapple Diet Tea - Raspberry",
+  "rprice": "2.5",
+  "bulan": "7",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Wonderful Pistachios - Variety",
+  "rprice": "2.0",
+  "bulan": "7",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "BodyArmor LYTE  - Berry Punch",
+  "rprice": "2.5",
+  "bulan": "8",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "CheezIt - Cheddar Sour Cream and Onion",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "CheezIt - Double Cheese",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "CheezIt - Original",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "12"
+}, {
+  "product": "Coca Cola - Zero Sugar",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Fritos - Original",
+  "rprice": "2.25",
+  "bulan": "8",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Goldfish Baked - Cheddar",
+  "rprice": "1.25",
+  "bulan": "8",
+  "jumlah_penjualan": "6"
+}, {
+  "product": "Hungry Buddha - Chocolate Chip",
+  "rprice": "2.0",
+  "bulan": "8",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Keto Bar - Chocolate Dream",
+  "rprice": "2.0",
+  "bulan": "8",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Keto Bar - Creamy Peanut Butter Chocolate",
+  "rprice": "2.0",
+  "bulan": "8",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Kinder - Bueno - Crispy Creamy Chocolate",
+  "rprice": "2.0",
+  "bulan": "8",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "KitKat - Crisp Wafers",
+  "rprice": "1.75",
+  "bulan": "8",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Lindens - Chocolate Chippers",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Miss Vickie\u0027s Potato Chip - Smokehouse BBQ",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Newtons Fig Bar",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Oreo Mini",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "10"
+}, {
+  "product": "Pop Corners - Kettle Corn",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "9"
+}, {
+  "product": "Pop Corners - White Cheddar",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Robert Irvine\u0027s - Fit Crunch -  Chocolate Pea",
+  "rprice": "2.0",
+  "bulan": "8",
+  "jumlah_penjualan": "11"
+}, {
+  "product": "S. Pellegrino Essenza Mineral Water - Blood O",
+  "rprice": "2.5",
+  "bulan": "8",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Simply Protein - Lemon Coconut",
+  "rprice": "2.0",
+  "bulan": "8",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "SunChips Multigrain - Harvest Cheddar",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "SunChips Multigrain - Original",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "6"
+}, {
+  "product": "SunChips Multigrain - Salsa",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "11"
+}, {
+  "product": "Takis - Hot Chilli Pepper \u0026 Lime",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "V8 Vegetable Juice - Original",
+  "rprice": "1.5",
+  "bulan": "8",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Wonderful Pistachios - Variety",
+  "rprice": "2.0",
+  "bulan": "8",
+  "jumlah_penjualan": "9"
+}, {
+  "product": "Zevia Organic Tea - Peach",
+  "rprice": "2.5",
+  "bulan": "8",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Coca Cola - Zero Sugar",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Fritos - Original",
+  "rprice": "2.25",
+  "bulan": "9",
+  "jumlah_penjualan": "4"
+}, {
+  "product": "Goldfish Baked - Cheddar",
+  "rprice": "1.25",
+  "bulan": "9",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Keto Bar - Chocolate Dream",
+  "rprice": "2.0",
+  "bulan": "9",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Keto Bar - Creamy Peanut Butter Chocolate",
+  "rprice": "2.0",
+  "bulan": "9",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Kinder - Bueno - Crispy Creamy Chocolate",
+  "rprice": "2.0",
+  "bulan": "9",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Lindens - Chocolate Chippers",
+  "rprice": "2.0",
+  "bulan": "9",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "Lindens - Chocolate Chippers",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "Made in Nature - Mangoes Sweet \u0026 Tangy",
+  "rprice": "2.0",
+  "bulan": "9",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Newtons Fig Bar",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "4"
+}, {
+  "product": "Nutter Butter Bites",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "6"
+}, {
+  "product": "Pop Corners - Kettle Corn",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Pop Corners - Sea Salt",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "Ritz Bits Peanut Butter",
+  "rprice": "2.0",
+  "bulan": "9",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Robert Irvine\u0027s - Fit Crunch -  Chocolate Pea",
+  "rprice": "2.0",
+  "bulan": "9",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "S. Pellegrino Essenza Mineral Water - Blood O",
+  "rprice": "2.5",
+  "bulan": "9",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Seapoint Farms Dry Roasted Edamame - Wasabi",
+  "rprice": "2.5",
+  "bulan": "9",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Simply Protein - Lemon Coconut",
+  "rprice": "2.0",
+  "bulan": "9",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "SunChips Multigrain - French Onion",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "SunChips Multigrain - Harvest Cheddar",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "11"
+}, {
+  "product": "SunChips Multigrain - Original",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "9"
+}, {
+  "product": "SunChips Multigrain - Salsa",
+  "rprice": "1.5",
+  "bulan": "9",
+  "jumlah_penjualan": "9"
+}, {
+  "product": "Wonderful Pistachios - Variety",
+  "rprice": "2.0",
+  "bulan": "9",
+  "jumlah_penjualan": "8"
+}, {
+  "product": "Coca Cola - Zero Sugar",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Fritos - Original",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Goldfish Baked - Cheddar",
+  "rprice": "1.25",
+  "bulan": "10",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Hungry Buddha - Chocolate Chip",
+  "rprice": "2.0",
+  "bulan": "10",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Keto Bar - Chocolate Dream",
+  "rprice": "2.0",
+  "bulan": "10",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Lindens - Chocolate Chippers",
+  "rprice": "2.0",
+  "bulan": "10",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Newtons Fig Bar",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Nutter Butter Bites",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Pop Corners - Kettle Corn",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "Pop Corners - Sea Salt",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "4"
+}, {
+  "product": "Popchips Potato - Barbeque",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "Popchips Potato - Sea Salt",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Popchips Potato - Sour Cream \u0026 Onion",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Ritz Bits Peanut Butter",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Robert Irvine\u0027s - Fit Crunch -  Chocolate Pea",
+  "rprice": "2.0",
+  "bulan": "10",
+  "jumlah_penjualan": "6"
+}, {
+  "product": "S. Pellegrino Essenza Mineral Water - Blood O",
+  "rprice": "2.5",
+  "bulan": "10",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Simply Protein - Lemon Coconut",
+  "rprice": "2.0",
+  "bulan": "10",
+  "jumlah_penjualan": "9"
+}, {
+  "product": "Snapple Diet Tea - Raspberry",
+  "rprice": "2.5",
+  "bulan": "10",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "SunChips Multigrain - Original",
+  "rprice": "1.5",
+  "bulan": "10",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "Wonderful Pistachios - Variety",
+  "rprice": "2.0",
+  "bulan": "10",
+  "jumlah_penjualan": "8"
+}, {
+  "product": "CheezIt - White Cheddar",
+  "rprice": "1.5",
+  "bulan": "11",
+  "jumlah_penjualan": "6"
+}, {
+  "product": "Coca Cola - Zero Sugar",
+  "rprice": "1.5",
+  "bulan": "11",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Doritos Spicy Nacho",
+  "rprice": "2.0",
+  "bulan": "11",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Fritos - Original",
+  "rprice": "2.5",
+  "bulan": "11",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Fritos - Original",
+  "rprice": "1.5",
+  "bulan": "11",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Hersheys Milk Chocolate",
+  "rprice": "2.0",
+  "bulan": "11",
+  "jumlah_penjualan": "6"
+}, {
+  "product": "Kinder - Bueno - Crispy Creamy Chocolate",
+  "rprice": "2.0",
+  "bulan": "11",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Lays - Classic",
+  "rprice": "2.5",
+  "bulan": "11",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "Lays - Classic",
+  "rprice": "1.5",
+  "bulan": "11",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Monster Energy  Zero Ultra",
+  "rprice": "3.0",
+  "bulan": "11",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Pop Corners - Kettle Corn",
+  "rprice": "1.5",
+  "bulan": "11",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "Pop Corners - Sea Salt",
+  "rprice": "1.5",
+  "bulan": "11",
+  "jumlah_penjualan": "19"
+}, {
+  "product": "Pop Corners - Spicy Queso",
+  "rprice": "1.5",
+  "bulan": "11",
+  "jumlah_penjualan": "8"
+}, {
+  "product": "Pop Corners - White Cheddar",
+  "rprice": "1.5",
+  "bulan": "11",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Robert Irvine\u0027s - Fit Crunch -  Chocolate Pea",
+  "rprice": "2.0",
+  "bulan": "11",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "S. Pellegrino Essenza Mineral Water - Blood O",
+  "rprice": "2.5",
+  "bulan": "11",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Simply Protein - Lemon Coconut",
+  "rprice": "2.0",
+  "bulan": "11",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Snapple Diet Tea - Raspberry",
+  "rprice": "2.5",
+  "bulan": "11",
+  "jumlah_penjualan": "5"
+}, {
+  "product": "Takis FUGEO mini",
+  "rprice": "1.5",
+  "bulan": "11",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Wonderful Pistachios - Variety",
+  "rprice": "2.0",
+  "bulan": "11",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "BodyArmor LYTE  - Berry Punch",
+  "rprice": "2.5",
+  "bulan": "12",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "BodyArmor LYTE  - Peach Mango",
+  "rprice": "2.5",
+  "bulan": "12",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "CheezIt - White Cheddar",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Coca Cola - Zero Sugar",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Doritos Spicy Nacho",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Fritos - Original",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Keto Bar - Creamy Peanut Butter Chocolate",
+  "rprice": "2.0",
+  "bulan": "12",
+  "jumlah_penjualan": "8"
+}, {
+  "product": "Kinder - Bueno - Crispy Creamy Chocolate",
+  "rprice": "2.0",
+  "bulan": "12",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Lays - Classic",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "Monster Energy  Zero Ultra",
+  "rprice": "3.0",
+  "bulan": "12",
+  "jumlah_penjualan": "3"
+}, {
+  "product": "Pop Corners - Kettle Corn",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "4"
+}, {
+  "product": "Pop Corners - Sea Salt",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "9"
+}, {
+  "product": "Pop Corners - Spicy Queso",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "7"
+}, {
+  "product": "Pop Corners - White Cheddar",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Robert Irvine\u0027s - Fit Crunch -  Chocolate Pea",
+  "rprice": "2.0",
+  "bulan": "12",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "S. Pellegrino Essenza Mineral Water - Blood O",
+  "rprice": "2.5",
+  "bulan": "12",
+  "jumlah_penjualan": "6"
+}, {
+  "product": "Simply Protein - Lemon Coconut",
+  "rprice": "2.0",
+  "bulan": "12",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Takis FUGEO mini",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "2"
+}, {
+  "product": "V8 Vegetable Juice - Original",
+  "rprice": "1.5",
+  "bulan": "12",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Wonderful Pistachios - Variety",
+  "rprice": "2.0",
+  "bulan": "12",
+  "jumlah_penjualan": "1"
+}, {
+  "product": "Zevia Organic Tea - Peach",
+  "rprice": "2.5",
+  "bulan": "12",
+  "jumlah_penjualan": "3"
+}]

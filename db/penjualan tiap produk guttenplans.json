@@ -1,0 +1,201 @@
+[{
+  "category": "Food",
+  "product": "Cheetos - Fleming Hot Crunchy",
+  "total_sales": "63"
+}, {
+  "category": "Food",
+  "product": "Cheetos Flaming Hot Limon Crunchy",
+  "total_sales": "52"
+}, {
+  "category": "Food",
+  "product": "Chesters Fries Flaming hot",
+  "total_sales": "28"
+}, {
+  "category": "Food",
+  "product": "Funyuns - Flaming Hot",
+  "total_sales": "54"
+}, {
+  "category": "Food",
+  "product": "Munchies Snack mix Flaming Hot",
+  "total_sales": "6"
+}, {
+  "category": "Food",
+  "product": "Hersheys Milk Chocolate",
+  "total_sales": "9"
+}, {
+  "category": "Food",
+  "product": "KitKat - Crisp Wafers",
+  "total_sales": "61"
+}, {
+  "category": "Food",
+  "product": "Pure Organic Fruit Bar - Raspberry Lemonade",
+  "total_sales": "5"
+}, {
+  "category": "Non Carbonated",
+  "product": "Snapple Lemonade - black berry",
+  "total_sales": "8"
+}, {
+  "category": "Non Carbonated",
+  "product": "Snapple Lemonade - pineapple",
+  "total_sales": "8"
+}, {
+  "category": "Non Carbonated",
+  "product": "Snapple Lemonade - watermelon",
+  "total_sales": "8"
+}, {
+  "category": "Non Carbonated",
+  "product": "Snapple Tea - Lemon",
+  "total_sales": "75"
+}, {
+  "category": "Non Carbonated",
+  "product": "Snapple Tea - Peach",
+  "total_sales": "67"
+}, {
+  "category": "Non Carbonated",
+  "product": "Snapple Tea - Raspberry",
+  "total_sales": "60"
+}, {
+  "category": "Carbonated",
+  "product": "Monster Energy Original",
+  "total_sales": "216"
+}, {
+  "category": "Carbonated",
+  "product": "Red Bull - Original",
+  "total_sales": "125"
+}, {
+  "category": "Food",
+  "product": "Cheetos - Crunchy",
+  "total_sales": "22"
+}, {
+  "category": "Food",
+  "product": "Cheetos Baked - Crunchy Cheese",
+  "total_sales": "24"
+}, {
+  "category": "Food",
+  "product": "Cheetos Baked - Flaming Hot",
+  "total_sales": "16"
+}, {
+  "category": "Food",
+  "product": "Cheetos Cheddar Jalapeno",
+  "total_sales": "22"
+}, {
+  "category": "Food",
+  "product": "Cheetos Puffs",
+  "total_sales": "14"
+}, {
+  "category": "Food",
+  "product": "CheezIt - Double Cheese",
+  "total_sales": "6"
+}, {
+  "category": "Food",
+  "product": "CheezIt - White Cheddar",
+  "total_sales": "5"
+}, {
+  "category": "Carbonated",
+  "product": "Coca Cola - Regular",
+  "total_sales": "299"
+}, {
+  "category": "Food",
+  "product": "Doritos Cool Ranch",
+  "total_sales": "26"
+}, {
+  "category": "Food",
+  "product": "Doritos Dinamita Chile Lemon",
+  "total_sales": "13"
+}, {
+  "category": "Food",
+  "product": "Doritos Famin Hot Nacho",
+  "total_sales": "51"
+}, {
+  "category": "Food",
+  "product": "Doritos Nacho Cheese",
+  "total_sales": "42"
+}, {
+  "category": "Food",
+  "product": "Doritos Spicy Nacho",
+  "total_sales": "20"
+}, {
+  "category": "Food",
+  "product": "Fritos - Original",
+  "total_sales": "18"
+}, {
+  "category": "Food",
+  "product": "Goldfish Baked - Cheddar",
+  "total_sales": "11"
+}, {
+  "category": "Food",
+  "product": "Jack Links Beef Steak Original",
+  "total_sales": "9"
+}, {
+  "category": "Food",
+  "product": "Lays - Barbecue",
+  "total_sales": "7"
+}, {
+  "category": "Food",
+  "product": "Lays - Classic",
+  "total_sales": "51"
+}, {
+  "category": "Food",
+  "product": "Mini Chips Ahoy",
+  "total_sales": "7"
+}, {
+  "category": "Food",
+  "product": "Nature\u0027s Bakery Fig Bar - Blueberry",
+  "total_sales": "70"
+}, {
+  "category": "Food",
+  "product": "Nature\u0027s Bakery Fig Bar - Raspberry",
+  "total_sales": "90"
+}, {
+  "category": "Food",
+  "product": "Nutri Grain Apple Cinnamon",
+  "total_sales": "4"
+}, {
+  "category": "Food",
+  "product": "Oreo Mini",
+  "total_sales": "12"
+}, {
+  "category": "Food",
+  "product": "Popchips Potato - Barbeque",
+  "total_sales": "4"
+}, {
+  "category": "Food",
+  "product": "Pure Organic Fruit Bar - Pineapple Passion Fr",
+  "total_sales": "2"
+}, {
+  "category": "Food",
+  "product": "Pure Organic Fruit Bar - Strawberry Banana",
+  "total_sales": "13"
+}, {
+  "category": "Food",
+  "product": "Ritz Bits Cheese",
+  "total_sales": "5"
+}, {
+  "category": "Food",
+  "product": "Ruffles Baked  - Cheddar \u0026 Sour Cream",
+  "total_sales": "17"
+}, {
+  "category": "Food",
+  "product": "SunChips Multigrain - French Onion",
+  "total_sales": "9"
+}, {
+  "category": "Food",
+  "product": "SunChips Multigrain - Harvest Cheddar",
+  "total_sales": "35"
+}, {
+  "category": "Food",
+  "product": "SunChips Multigrain - Original",
+  "total_sales": "13"
+}, {
+  "category": "Food",
+  "product": "SunChips Multigrain - Salsa",
+  "total_sales": "19"
+}, {
+  "category": "Carbonated",
+  "product": "Sunkist Soda - Orange",
+  "total_sales": "137"
+}, {
+  "category": "Food",
+  "product": "Takis FUGEO mini",
+  "total_sales": "23"
+}]
