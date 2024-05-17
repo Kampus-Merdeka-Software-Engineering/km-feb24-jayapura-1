@@ -67,27 +67,50 @@
             </ul>
         </aside>
 
-        <!-- Main -->
+        <!-- MAIN -->
         <main class="main-container">
+
             <!-- Filter -->
             <section id="filter">
-                <select id="Location" onchange="filterContent(event)">
-                    <option value="all">Location</option>
-                    <option value="GuttenPlans">GuttenPlans</option>
-                    <option value="EB Public Library">EB Public Library</option>
-                    <option value="Brunswick SQ Mall">Brunswick SQ Mall</option>
-                    <option value="Brunswick SQ Mall">Earle Asphalt</option>
-                </select>
-                <select id="Product" onchange="filterContent(event)">
-                    <option value="all">Product</option>
-                    <option value="GuttenPlans">GuttenPlans</option>
-                    <option value="EB Public Library">EB Public Library</option>
-                    <option value="Brunswick SQ Mall">Brunswick SQ Mall</option>
-                    <option value="Brunswick SQ Mall">Earle Asphalt</option>
-                </select>
-                <select id="DateRange" onchange="filterContent(event)">
-                   
-                </select>
+
+                <!--Filter Location-->
+                <div class="filter-item">
+                    <img src="assets\icon-filter-location.svg" alt="Filter Location">   <!--Icon-->
+                    <select id="Location" onchange="filterContent(event)"> <!--ComboBox-->
+                        <option value="all">All Location</option>
+                        <option value="GuttenPlans">GuttenPlans</option>
+                        <option value="EB Public Library">EB Public Library</option>
+                        <option value="Brunswick SQ Mall">Brunswick SQ Mall</option>
+                        <option value="Brunswick SQ Mall">Earle Asphalt</option>
+                    </select>
+                </div>
+                
+                <!--Filter Product-->
+                <div class="filter-item">
+                    <img src="assets\icon-filter-product.svg" alt="Filter Location">
+                    <select id="Product" onchange="filterContent(event)">
+                        <option value="all">Product</option>
+                        <option value="GuttenPlans">GuttenPlans</option>
+                        <option value="EB Public Library">EB Public Library</option>
+                        <option value="Brunswick SQ Mall">Brunswick SQ Mall</option>
+                        <option value="Brunswick SQ Mall">Earle Asphalt</option>
+                    </select>
+                </div>
+
+                <!--Filter Date Range-->
+                <div class="filter-item-date_range">
+                    <img src="assets\icon-filter-date_range.svg" alt="Filter Location">
+                    <!-- <select id="DateRange" onchange="filterContent(event)"> -->
+
+                    <!--Eksperimen date-->
+                    <!-- TODO: Edit lagi bagian ukuran, warna, padding dan warna. -->
+                        <label for="start_date">Start</label>
+                        <input type="date" min="2022-01-01" max="2022-12-30" name="start_date" value="">
+                        <label for="end_date">End</label>
+                        <input type="date" min="2022-01-01" max="2022-12-30" name="end_date" value="">
+
+                </div>
+                
             </section>
 
             <section id="display-area">
