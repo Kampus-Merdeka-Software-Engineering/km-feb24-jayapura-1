@@ -54,7 +54,7 @@ body {
   }
 
   form.search input[type=text] {
-    padding: 5px;
+    padding: 10px;
     font-size: 13px;
     border: 1px solid #e6e8ed;
     float: left;
@@ -71,7 +71,7 @@ body {
   form.search button {
     float: left;
     width: 20%;
-    padding: 5px;
+    padding: 10px;
     background: #e6e8ed;
     color: #005FB1;
     font-size: 17px;
@@ -112,7 +112,7 @@ body {
     margin-top: 5px;
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   
   .sidebar-list {
@@ -157,7 +157,6 @@ body {
     cursor: pointer;
   }
   
- 
   .sidebar-responsive {
     display: inline !important;
     position: absolute;
@@ -284,17 +283,16 @@ body {
   @media screen and (max-width: 992px) {
     .grid-container {
       grid-template-columns: 1fr;
-      grid-template-rows: 0.2fr 3fr;
+      grid-template-rows: 1fr;
       grid-template-areas:
-        "header"
-        "main";
+        "sidebar";
     }
 
     .menu-bar{
       display: inline;
     }
   
-    #sidebar {
+    .header, .main-container{
       display: none;
     }
   
@@ -303,8 +301,8 @@ body {
     }
 
     .sidebar-title{
-      justify-content: space-between;
-    }
+        justify-content: space-between;
+      }
   
     .sidebar-title > span {
       display: inline;

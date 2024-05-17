@@ -7,11 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team 1 Jayapura - Dashboard</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+	integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Custom CSS-->
-    <link rel="stylesheet" href="css/styles.css">
+    <link id="stylesheet" rel="stylesheet" href="css/styles.css">
 
 </head>
 
@@ -19,16 +23,31 @@
     <div class="grid-container">
         <header class="header">
             <div class="header-left">
+                <div class="menu-bar">
+                    <button class="toggle-btn" onclick="toggleSidebar()">
+                        <i class="fa-solid fa-bars" style="font-size: 25px; color: #005FB1; background-color: #ffffff; margin-top: 1px;"></i>
+                    </button>
+                </div>
                 <h2>Dashboard</h2>
             </div>
             <div class="header-right">
-                <span>search</span>
+                <form class="search">
+                    <input type="text" placeholder="Search" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
             </div>
         </header>
 
         <aside id="sidebar">
             <!--LOGO-->
-            <div class="sidebar-title">Team 1 Jayapura</div>
+            <div class="sidebar-title">
+                <img src="assets/Logo Team 1.jpg" width="189.3" height="84.3">
+                <div class="menu-bar">
+                    <button class="toggle-btn" onclick="toggleSidebar()">
+                        <i class="fa-solid fa-xmark" style="font-size: 25px; color: #005FB1; background-color: #ffffff; margin-top: 1px;"></i>
+                    </button>
+                </div>
+            </div>
     
             <!--Sidebar Navigation-->
             <ul class="sidebar-list">
@@ -57,8 +76,10 @@
                     </a>
                 </li>
 
+                <hr>
+
                 <!--About-->
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item-about">
                     <a href="#">
                         <img src="assets\icon-sidebar-about.svg" alt="icon-sidebar-about">
                         About
@@ -132,7 +153,7 @@
         <p>&copy; Dashboard by <b>Team 1 Jayapura</b></p>
     </footer>
 
-    <script src="js/scripts.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
