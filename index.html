@@ -17,6 +17,9 @@
     <!-- Custom CSS-->
     <link id="stylesheet" rel="stylesheet" href="css/styles.css">
 
+    <!-- Canvas Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -140,17 +143,17 @@
             
             <!-- Cards -->
             <section class="main-cards">
-                <div class="card">
+                <div class="card" id="totalIncomeCard">
                     <h3>Total Income</h3>
-                    <span>249</span>
+                    <span>Loading...</span>
                 </div>
-                <div class="card">
+                <div class="card" id="salesVolumeCard">
                     <h3>Sales Volume</h3>
-                    <span>83</span>
+                    <span></span>
                 </div>
-                <div class="card">
+                <div class="card" id="quantitySoldCard">
                     <h3>Quantity of Product Sold</h3>
-                    <span>123</span>
+                    <span>Loading...</span>
                 </div>
             </section>
         
@@ -158,6 +161,7 @@
             <section class="charts">
                 <div class="charts-card">
                     <label class="chart-title">Amount of Sales by Category</label>
+                    <canvas id="myChart"></canvas>
                 </div>
             </section>
 
