@@ -10,7 +10,7 @@ function toggleSidebar() {
 // Fetch Quantity Sold
 async function fetchQuantitySold() {
     try {
-        const response = await fetch('http://localhost:5500/db/JumlahPenjualan.json');
+        const response = await fetch('http://127.0.0.1:3000//db/JumlahPenjualan.json');
         if (!response.ok) {
             throw new Error(`HTTP error: ${response.status}`);
         }
@@ -31,10 +31,10 @@ async function fetchQuantitySold() {
 //Fetch Total Income
 async function fetchTotalIncome() {
     const urls = [
-        'http://localhost:5500/db/totalPenjualanEarle.json',
-        'http://localhost:5500/db/totalPenjualanLibrary.json',
-        'http://localhost:5500/db/totalPenjualanSqMall.json',
-        'http://localhost:5500/db/totalPenjualanGuttenplans.json'
+        'http://127.0.0.1:3000/db/totalPenjualanEarle.json',
+        'http://127.0.0.1:3000/db/totalPenjualanLibrary.json',
+        'http://127.0.0.1:3000/db/totalPenjualanSqMall.json',
+        'http://127.0.0.1:3000/db/totalPenjualanGuttenplans.json'
     ];
 
     try {
@@ -84,10 +84,10 @@ async function fetchTotalIncome() {
 async function fetchCategory() {
     try {
         const urls = [
-            'http://localhost:5500/db/KategoriProdukEarle.json',
-            'http://localhost:5500/db/KategoriProdukGuttenplans.json',
-            'http://localhost:5500/db/KategoriProdukLibrary.json',
-            'http://localhost:5500/db/KategoriProdukSqMall.json'
+            'http://127.0.0.1:3000//db/KategoriProdukEarle.json',
+            'http://127.0.0.1:3000//db/KategoriProdukGuttenplans.json',
+            'http://127.0.0.1:3000//db/KategoriProdukLibrary.json',
+            'http://127.0.0.1:3000//db/KategoriProdukSqMall.json'
         ];
 
         const fetchPromises = urls.map(url => fetch(url).then(response => {
@@ -156,3 +156,15 @@ async function fetchData() {
 }
 
 fetchData();
+
+
+// ---------- ABOUT -----------
+//Buka link di tab baru pada tombol Source Code
+document.getElementById("our_project-source_code").onclick = function () {
+    window.open("https://github.com/Kampus-Merdeka-Software-Engineering/km-feb24-jayapura-1");
+};
+
+//Buka link di tab baru pada tombol Dataset
+document.getElementById("our_project-dataset").onclick = function () {
+    window.open("https://www.kaggle.com/datasets/awesomeasingh/vending-machine-sales");
+};

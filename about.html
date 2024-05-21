@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 1 Jayapura - Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+	integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS-->
+    <link id="stylesheet" rel="stylesheet" href="css/styles.css">
+
+    <!-- Canvas Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="header-left">
+                <div class="menu-bar">
+                    <button class="toggle-btn" onclick="toggleSidebar()">
+                        <i class="fa-solid fa-bars" style="font-size: 25px; color: #005FB1; background-color: #ffffff; margin-top: 1px;"></i>
+                    </button>
+                </div>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="header-right">
+                <form class="search">
+                    <input type="text" placeholder="Search" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <!--LOGO-->
+            <div class="sidebar-title">
+                <img src="assets/Logo Team 1.jpg" width="189.3" height="84.3">
+                <div class="menu-bar">
+                    <button class="toggle-btn" onclick="toggleSidebar()">
+                        <i class="fa-solid fa-xmark" style="font-size: 25px; color: #005FB1; background-color: #ffffff; margin-top: 1px;"></i>
+                    </button>
+                </div>
+            </div>
+    
+            <!--Sidebar Navigation-->
+            <ul class="sidebar-list">
+
+                <!--Dashboard-->
+                <li class="sidebar-list-item">       
+                    <a href="index.html">
+                        <img src="assets\icon-sidebar-dashboard.svg" alt="icon-sidebar-dashboard">
+                        Dashboard
+                    </a>
+                </li>
+
+                <!--Table-->
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <img src="assets\icon-sidebar-table.svg" alt="icon-sidebar-table">
+                        Table
+                    </a>
+                </li>
+
+                <!--Chartd-->
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <img src="assets\icon-sidebar-chart.svg" alt="icon-sidebar-charts">
+                        Charts
+                    </a>
+                </li>
+
+                <hr>
+
+                <!--About-->
+                <li class="sidebar-list-item-about">
+                    <a href="#">
+                        <img src="assets\icon-sidebar-about.svg" alt="icon-sidebar-about">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-container">
+
+            <!--Our Project-->
+            <section id="our-project">
+                <h2>Our Project</h2>
+                <p>Dashboard of vending machine's sales using real-life data from Kaggle.</p><!--Tentang project-->
+                <button id="our_project-source_code">Source Code</button>
+                <button id="our_project-dataset">Dataset</button>
+            </section>
+            
+            <!--Our Team-->
+            <section id="our-team">
+                <h2>Our Team</h2>
+                <!--Project Leader-->
+                <div class="team-member">
+                    <img src="assets\team\hamrozi.jpg" alt="pl-hamrozi">
+                    <p>Muhammad Hamrozi Yusira</p>
+                    <span>Project Leader</span>
+                </div>
+
+                <!--Front-End Engineer-->
+                <div class="team-member">
+                    <img src="assets\team\fatih.jpg" alt="fee-fatih">
+                    <p>Fatih Rizqi Santoso</p>
+                    <span>Front-End Engineer</span>
+                </div>
+
+                <div class="team-member">
+                    <img src="assets\team\fikri.jpg" alt="fee-fikri">
+                    <p>Fikri Triasputra</p>
+                    <span>Front-End Engineer</span>
+                </div>
+
+                <div class="team-member">
+                    <img src="assets\team\hawari.jpg" alt="fee-hawari">
+                    <p>Muhammad Naufal Hawari Nor</p>
+                    <span>Front-End Engineer</span>
+                </div>
+
+                <div class="team-member">
+                    <img src="assets\team\ulya.jpg" alt="fee-ulya">
+                    <p>Nadiah Sahidah Ulya</p>
+                    <span>Front-End Engineer</span>
+                </div>
+
+                <!--Quality Assurance-->
+                <div class="team-member">
+                    <img src="assets\team\aidha.jpg" alt="qa-aidha">
+                    <p>Aidha Rahmi Tazqiyah</p>
+                    <span>Quality Assurance</span>
+                </div>
+
+                <div class="team-member">
+                    <img src="assets\team\deva.jpg" alt="qa-deva">
+                    <p>Deva Viola Putri Nabilah</p>
+                    <span>Quality Assurance</span>
+                </div>
+
+                <div class="team-member">
+                    <img src="assets\team\ludwina.jpg" alt="qa-ludwina">
+                    <p>Ludwina Victoria Sielke Laurent Sopacuaperu</p>
+                    <span>Quality Assurance</span>
+                </div>
+
+                <!--Deployment-->
+                <div class="team-member">
+                    <img src="assets\team\bastian.jpg" alt="dt-bastian">
+                    <p>Bastian Claudio</p>
+                    <span>Deployment</span>
+                </div>
+
+                <div class="team-member">
+                    <img src="assets\team\itsnaina.jpg" alt="dt-itsnaina">
+                    <p>Itsnaina Rizqa Amalia</p>
+                    <span>Deployment</span>
+                </div>
+
+                <!--Pitch Deck-->
+                <div class="team-member">
+                    <img src="assets\team\aisyah.jpg" alt="pd-aisyah">
+                    <p>Dias Aisyah Husaeni</p>
+                    <span>Pitch Deck</span>
+                </div>
+
+                <div class="team-member">
+                    <img src="assets\team\fida.jpg" alt="pd-fida">
+                    <p>Fida Riska Saputri</p>
+                    <span>Pitch Deck</span>
+                </div>
+
+                <div class="team-member">
+                    <img src="assets\team\salsa.jpg" alt="pd-salsa">
+                    <p>Salsa Halimatu Sadiah</p>
+                    <span>Pitch Deck</span>
+                </div>
+
+            </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; Dashboard by <b>Team 1 Jayapura</b></p>
+        </footer>
+
+        <script src="js/script.js"></script>
+
+</body>
+
+</html>

@@ -6,6 +6,10 @@ body {
     color: #666666;
     font-family: "Montserrat", sans-serif;
   }
+
+  a {
+    text-decoration: none;
+  }
   
   .grid-container {
     display: grid;
@@ -381,6 +385,99 @@ body {
       display: none;
     }
   }
+
+
+/* ----------- ABOUT---------- */
+/*--- Our Project --- */
+#our-project {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+#our-project h2, p {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 5px;
+}
+
+#our-project a {
+  color: white;
+}
+
+#our-project button {
+  margin: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 18vh;
+  height: auto;
+  border-radius: 7px;
+  box-sizing: border-box;
+  outline: 0px;
+  border: 0px;
+  background-color: #005FB1;
+  color: white;
+  font-family: 'Montserrat';
+}
+
+#our-project button:hover {
+  cursor: pointer;
+  background-color: #004480;
+}
+
+/*--- Our Team --- */
+#our-team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+#our-team h2 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.team-member {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  margin-bottom: 30px;
+  width: 200px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.team-member img {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  margin: 0px;
+}
+
+.team-member p {
+  font-weight: 700;
+  margin: 10px 10px 5px 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.team-member span {
+  text-align: center;
+  margin: 0px;
+  padding: 5px;
+  color: #005FB1;
+  font-size: 12px;
+  border: solid 1px #005FB1;
+  border-radius: 7px; 
+}
+
 
 /* FOOTER */
   footer {
