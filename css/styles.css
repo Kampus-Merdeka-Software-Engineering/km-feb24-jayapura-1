@@ -152,7 +152,6 @@ body {
     color: #F2F2F2;
   }
   
-
   .sidebar-list-item a img, .sidebar-list-item-about a img {
     margin-right: 10px;
   }
@@ -162,7 +161,6 @@ body {
     cursor: pointer;
   }
   
- 
   .sidebar-responsive {
     display: inline !important;
     position: absolute;
@@ -192,7 +190,6 @@ body {
     height: 3vh;
     width: auto;
   }
-
 
   .filter-item {
     display: flex;
@@ -246,6 +243,14 @@ body {
     gap: 20px;
   }
   
+  .charts-and-table {
+    display: grid;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
   .card {
     display: flex;
     flex-direction: column;
@@ -274,9 +279,11 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    flex: 1;
   }
   
-  .charts-card, .table-card {
+  .charts-card, .charts-card2, .table-card {
+    flex: 1;
     background-color: #ffffff;
     margin-bottom: 30px;
     box-sizing: border-box;
@@ -287,8 +294,41 @@ body {
     height: 100%;
   }
 
-  .table-card {
+  .charts-card2, .table-card {
     margin-top: 30px;
+
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    justify-items: center;
+  }
+
+  table tr, table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      width: 45% !important;
+  }
+
+  table tbody {
+    width: 90%;
+  }
+
+  th .thProduk{
+    width: 80% !important;
+  }
+
+  table th {
+      background-color: #f2f2f2;
+      text-align: center;
+  }
+
+  table tr:nth-child(even) {
+      background-color: #f9f9f9;
   }
   
   .chart-title, .table-title {
@@ -308,7 +348,46 @@ body {
     height: 500px !important;
     padding: 25px;
 }
-  
+
+  #myChart2 {
+    width: 100% !important;
+    height: 430px !important;
+    padding: 25px;
+  }
+
+  #tableContent {
+    width: 100% !important;
+    height: fit-content !important;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#paginationControls {
+  margin: 20px 20px;
+  padding-bottom: 15px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: #005FB1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+ 
   /* ---------- SCROLLBARS ---------- */
   
   ::-webkit-scrollbar {
@@ -363,6 +442,15 @@ body {
     .sidebar-title > span {
       display: inline;
     }
+
+    .charts-and-table {
+      flex-direction: column;
+    }
+
+    .charts-and-table {
+      grid-template-columns: 1fr;
+      gap: 0;
+  }
   }
   
   /* Small <= 768px */
@@ -375,7 +463,7 @@ body {
   
     .charts {
       grid-template-columns: 1fr;
-      margin-top: 30px;
+      /* margin-top: 30px; */
     }
   }
   
@@ -383,6 +471,14 @@ body {
   @media screen and (max-width: 576px) {
     .header-left h2{
       display: none;
+    }
+    
+    .table-card, .charts-card {
+      padding: 10px;
+    }
+
+    table {
+        font-size: 14px;
     }
   }
 

@@ -149,7 +149,7 @@
                 </div>
                 <div class="card" id="salesVolumeCard">
                     <h3>Sales Volume</h3>
-                    <span></span>
+                    <span>Loading...</span>
                 </div>
                 <div class="card" id="quantitySoldCard">
                     <h3>Quantity of Product Sold</h3>
@@ -165,11 +165,24 @@
                 </div>
             </section>
 
-            <!-- Table -->
-            <section class="table">
-                <div class="table-card">
-                    <label class="table-title">Income and Sales Trend</label>
-                </div>
+            <!-- Table and Charts -->
+            <section class="charts-and-table">
+                <!-- Table -->
+                <section class="table">
+                    <div class="table-card">
+                        <label class="table-title">Top Products</label>
+                        <div id="tableContent"></div>
+                        <div id="paginationControls"></div>
+                    </div>
+                </section>
+    
+                <!-- Charts -->
+                <section class="charts">
+                    <div class="charts-card2">
+                        <label class="chart-title">Quantity of Product Sold Based on Price</label>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </section>
             </section>
 
         </main>

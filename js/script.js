@@ -7,70 +7,35 @@ function toggleSidebar() {
     }
 }
 
-// Fetch Quantity Sold
-async function fetchQuantitySold() {
+// ----- TOTAL INCOME -----
+async function fetchTotalIncome() {
+    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
+
     try {
-        const response = await fetch('http://127.0.0.1:3000//db/JumlahPenjualan.json');
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error: ${response.status}`);
         }
+
         const data = await response.json();
-        console.log(data);
-
-        if (Array.isArray(data) && data.length > 0) {
-            const quantitySold = data[0].jumlah_penjualan;
-            document.getElementById('quantitySoldCard').querySelector('span').textContent = quantitySold;
-        } else {
-            console.error("Data format is not as expected");
-        }
-    } catch (error) {
-        console.error("Failed to display data", error.message);
-    }
-}
-
-//Fetch Total Income
-async function fetchTotalIncome() {
-    const urls = [
-        'http://127.0.0.1:3000/db/totalPenjualanEarle.json',
-        'http://127.0.0.1:3000/db/totalPenjualanLibrary.json',
-        'http://127.0.0.1:3000/db/totalPenjualanSqMall.json',
-        'http://127.0.0.1:3000/db/totalPenjualanGuttenplans.json'
-    ];
-
-    try {
-        const fetchPromises = urls.map(url => fetch(url).then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
-            }
-            return response.json();
-        }));
-
-        const data = await Promise.all(fetchPromises);
-
+        
         // Log data for debugging
         console.log(data);
 
-        // Calculate total income from all URLs
-        // Masih sementara, nanti jumlah_penjualan diganti line total karena data json ternyata masih belum lengkap (ada miss)
+        // Calculate total income from the fetched data
         let totalIncome = 0;
-        data.forEach(itemList => {
-            if (Array.isArray(itemList)) {
-                itemList.forEach(item => {
-                    if (typeof item.jumlah_penjualan === 'string') {
-                        const harga = parseFloat(item.jumlah_penjualan);
-                        if (!isNaN(harga)) {
-                            totalIncome += harga;
-                        } else {
-                            console.error("Invalid number format in item:", item);
-                        }
-                    } else {
-                        console.error("Data format is not as expected:", item);
-                    }
-                });
-            } else {
-                console.error("Data format is not as expected:", itemList);
-            }
-        });
+        if (Array.isArray(data)) {
+            data.forEach(item => {
+                if (typeof item.RPrice === 'number' && typeof item.RQty === 'number') {
+                    const income = item.RPrice * item.RQty;
+                    totalIncome += income;
+                } else {
+                    console.error("Data format is not as expected:", item);
+                }
+            });
+        } else {
+            console.error("Data format is not as expected:", data);
+        }
 
         // Update the DOM with total income
         document.getElementById('totalIncomeCard').querySelector('span').textContent = totalIncome.toFixed(2);
@@ -80,55 +45,109 @@ async function fetchTotalIncome() {
     }
 }
 
-//Fetch Category
+// ----- SALES VOLUME -----
+async function fetchSalesVolume() {
+    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+            // Calculate sales volume
+            const salesVolume = data.reduce((total, item) => {
+                if (typeof item.RQty === 'number') {
+                    return total + item.RQty * 6;
+                } else {
+                    console.error("RQty is not a number in item:", item);
+                    return total;
+                }
+            }, 0);
+
+            // Update the DOM with total sales volume
+            document.getElementById('salesVolumeCard').querySelector('span').textContent = salesVolume;
+        } else {
+            console.error("Data format is not as expected");
+        }
+    } catch (error) {
+        console.error("Failed to display data", error.message);
+    }
+}
+
+
+// ----- QUANTITY SOLD -----
+async function fetchQuantitySold() {
+    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+            // Sum of all RQty values
+            const quantitySold = data.reduce((total, item) => {
+                if (typeof item.RQty === 'number') {
+                    return total + item.RQty;
+                } else {
+                    console.error("RQty is not a number in item:", item);
+                    return total;
+                }
+            }, 0);
+
+            // Update the DOM with total quantity sold
+            document.getElementById('quantitySoldCard').querySelector('span').textContent = quantitySold;
+        } else {
+            console.error("Data format is not as expected");
+        }
+    } catch (error) {
+        console.error("Failed to display data", error.message);
+    }
+}
+
+
+// ----- CHART CATEGORY -----
 async function fetchCategory() {
     try {
-        const urls = [
-            'http://127.0.0.1:3000//db/KategoriProdukEarle.json',
-            'http://127.0.0.1:3000//db/KategoriProdukGuttenplans.json',
-            'http://127.0.0.1:3000//db/KategoriProdukLibrary.json',
-            'http://127.0.0.1:3000//db/KategoriProdukSqMall.json'
-        ];
+        const url = 'http://localhost:5500/db/databaseCleanGabung.json';
 
-        const fetchPromises = urls.map(url => fetch(url).then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
-            }
-            return response.json();
-        }));
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
 
-        const data = await Promise.all(fetchPromises);
+        const data = await response.json();
 
         // Proses data untuk chart
-        const categories = [];
-        const salesData = [];
-
-        data.forEach(dataList => {
-            dataList.forEach(item => {
-                const category = item.Category;
-                const sales = parseInt(item.jum_penjualan_mall);
-                const index = categories.indexOf(category);
-                if (index === -1) {
-                    categories.push(category);
-                    salesData.push(sales);
-                } else {
-                    salesData[index] += sales;
-                }
-            });
+        const categories = {};
+        data.forEach(item => {
+            const category = item.Category;
+            const sales = parseInt(item.RQty);
+            if (!isNaN(sales)) {
+                categories[category] = (categories[category] || 0) + sales;
+            } else {
+                console.error("Invalid sales data for item:", item);
+            }
         });
 
         // Get canvas
         const ctx = document.getElementById('myChart').getContext('2d');
 
         // Buat chart 
-        // Ini juga kayanya masi ada miss data soalnya beda hasilnya :(
         const myChart = new Chart(ctx, {
             type: 'bar', 
             data: {
-                labels: categories,
+                labels: Object.keys(categories),
                 datasets: [{
                     label: 'Quantity of Category Sold',
-                    data: salesData,
+                    data: Object.values(categories),
                     backgroundColor: 'rgba(0, 95, 177, 1)',
                     borderColor: 'rgba(0, 95, 177, 1)',
                     borderWidth: 1
@@ -150,12 +169,161 @@ async function fetchCategory() {
 }
 
 async function fetchData() {
-    await fetchQuantitySold();
     await fetchTotalIncome();
+    await fetchSalesVolume();
+    await fetchQuantitySold();
     await fetchCategory();
 }
 
+// ----- TOP PRODUCTS -----
+document.addEventListener("DOMContentLoaded", async function() {
+    try {
+        const topProductsResponse = await fetchTopProducts();
+        const topProductsData = await topProductsResponse.json();
+        const groupedData = groupByProduct(topProductsData);
+        const sortedData = sortByQuantity(groupedData);
+        const itemsPerPage = 10;
+        let currentPage = 1;
+
+        function displayPage(page, data) {
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageData = data.slice(start, end);
+            const topProductsTable = generateTopProductsTable(pageData);
+            const tableContent = document.getElementById("tableContent");
+            if (tableContent) {
+                tableContent.innerHTML = topProductsTable;
+            } else {
+                console.error("Element with ID 'tableContent' not found!");
+            }
+            updatePaginationControls(page, data.length);
+        }
+
+        function updatePaginationControls(page, totalItems) {
+            const paginationControls = document.getElementById("paginationControls");
+            if (paginationControls) {
+                const totalPages = Math.ceil(totalItems / itemsPerPage);
+                paginationControls.innerHTML = `
+                    <button onclick="goToPage(${page - 1})" ${page === 1 ? 'disabled' : ''}>Previous</button>
+                    <span>Page ${page} of ${totalPages}</span>
+                    <button onclick="goToPage(${page + 1})" ${page === totalPages ? 'disabled' : ''}>Next</button>
+                `;
+            } else {
+                console.error("Element with ID 'paginationControls' not found!");
+            }
+        }
+
+        window.goToPage = function(page) {
+            const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+            if (page > 0 && page <= totalPages) {
+                currentPage = page;
+                displayPage(currentPage, sortedData);
+            }
+        }
+
+        displayPage(currentPage, sortedData);
+    } catch (error) {
+        console.error("Failed to fetch top products:", error.message);
+    }
+});
+
+async function fetchTopProducts() {
+    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
+    return await fetch(url);
+}
+
+function groupByProduct(data) {
+    const grouped = data.reduce((acc, item) => {
+        if (!acc[item.Product]) {
+            acc[item.Product] = { Product: item.Product, RQty: 0 };
+        }
+        acc[item.Product].RQty += item.RQty;
+        return acc;
+    }, {});
+    return Object.values(grouped);
+}
+
+function sortByQuantity(data) {
+    return data.sort((a, b) => b.RQty - a.RQty);
+}
+
+function generateTopProductsTable(data) {
+    let tableHTML = '<table>';
+    tableHTML += '<tr><th class="thProduk">Product</th><th class="thQtt">Quantity Sold</th></tr>';
+    data.forEach(product => {
+        tableHTML += `<tr><td>${product.Product}</td><td>${product.RQty}</td></tr>`;
+    });
+    tableHTML += '</table>';
+    return tableHTML;
+}
+
 fetchData();
+
+
+// ----- CHART QUANTITY PRODUCT -----
+async function fetchQuantityProduct() {
+    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+            // Proses data untuk chart
+            const quantityByPrice = {};
+            data.forEach(item => {
+                if (typeof item.RPrice === 'number' && typeof item.RQty === 'number') {
+                    quantityByPrice[item.RPrice] = (quantityByPrice[item.RPrice] || 0) + item.RQty;
+                } else {
+                    console.error("RPrice or RQty is not a number in item:", item);
+                }
+            });
+
+            // Urutkan harga
+            const sortedPrices = Object.keys(quantityByPrice).map(price => parseFloat(price)).sort((a, b) => a - b);
+            const quantities = sortedPrices.map(price => quantityByPrice[price]);
+
+            // Get canvas
+            const ctx = document.getElementById('myChart2').getContext('2d');
+
+            // Buat chart
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: sortedPrices,
+                    datasets: [{
+                        label: 'Quantity Sold',
+                        data: quantities,
+                        backgroundColor: 'rgba(0, 95, 177, 1)',
+                        borderColor: 'rgba(0, 95, 177, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    indexAxis: 'x', // vertical bar chart
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+    
+                        },
+                    }
+                }
+            });
+
+        } else {
+            console.error("Data format is not as expected");
+        }
+    } catch (error) {
+        console.error("Failed to display data:", error.message);
+    }
+}
+
+fetchQuantityProduct();
 
 
 // ---------- ABOUT -----------
