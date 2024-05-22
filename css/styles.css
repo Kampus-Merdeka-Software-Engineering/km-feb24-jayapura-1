@@ -173,7 +173,7 @@ body {
   .main-container {
     grid-area: main;
     overflow-y: auto;
-    padding: 20px 20px;
+    /* padding: 20px 20px 0px; */
   }
  
   #filter {
@@ -182,6 +182,7 @@ body {
     grid-template-columns: repeat(3, auto 1fr);
     gap: 5vh;
     height: 4vh;
+    padding: 20px;
     align-items: center;
     margin-bottom: 20px;
   }
@@ -241,6 +242,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
+    padding: 20px;
   }
   
   .charts-and-table {
@@ -249,6 +251,7 @@ body {
     align-items: flex-start;
     gap: 20px;
     grid-template-columns: 1fr 1fr;
+    padding: 20px;
 }
 
   .card {
@@ -280,6 +283,7 @@ body {
     grid-template-columns: 1fr;
     gap: 20px;
     flex: 1;
+    padding: 20px;
   }
   
   .charts-card, .charts-card2, .table-card {
@@ -579,7 +583,9 @@ body {
   footer {
     display: flex;
     justify-content: center;
-    background-color: #F2F2F2;
+    margin-top: 20px;
+    width: 100%;  
+    background-color: #ffffff;
     color: #005FB1;
     padding: 10px;
 }
