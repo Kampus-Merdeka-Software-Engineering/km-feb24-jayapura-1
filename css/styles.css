@@ -127,7 +127,7 @@ body {
   }
   
   .sidebar-list-item {
-    margin: 15px 0;
+    margin: 5px 0;
     /* padding: 20px 20px 20px 20px; */
     border-radius: 1vh;
   }
@@ -140,14 +140,14 @@ body {
   hr{
     margin-left: 15px;
     margin-right: 15px;
-    border: 1px solid white;
+    border: 1px solid #004480;
     
   }
 
   .sidebar-list-item a, .sidebar-list-item-about a {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
     text-decoration: none;
     color: #F2F2F2;
   }
@@ -157,7 +157,7 @@ body {
   }
   
   .sidebar-list-item:hover, .sidebar-list-item-about:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #004480;
     cursor: pointer;
   }
   
