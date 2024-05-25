@@ -1,3 +1,6 @@
+//Definisi Variabel Global
+const url = 'http://127.0.0.1:3002/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
+
 function toggleSidebar() {
     const stylesheet = document.getElementById('stylesheet');
     if (stylesheet.getAttribute('href') === 'css/styles.css') {
@@ -9,7 +12,6 @@ function toggleSidebar() {
 
 // ----- TOTAL INCOME -----
 async function fetchTotalIncome() {
-    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
 
     try {
         const response = await fetch(url);
@@ -38,7 +40,7 @@ async function fetchTotalIncome() {
         }
 
         // Update the DOM with total income
-        document.getElementById('totalIncomeCard').querySelector('span').textContent = totalIncome.toFixed(2);
+        document.getElementById('totalIncomeCard').querySelector('span').textContent = '$'+totalIncome.toFixed(2);
 
     } catch (error) {
         console.error("Failed to display data:", error.message);
@@ -47,7 +49,6 @@ async function fetchTotalIncome() {
 
 // ----- SALES VOLUME -----
 async function fetchSalesVolume() {
-    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
 
     try {
         const response = await fetch(url);
@@ -81,7 +82,6 @@ async function fetchSalesVolume() {
 
 // ----- QUANTITY SOLD -----
 async function fetchQuantitySold() {
-    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
 
     try {
         const response = await fetch(url);
@@ -116,7 +116,6 @@ async function fetchQuantitySold() {
 // ----- CHART CATEGORY -----
 async function fetchCategory() {
     try {
-        const url = 'http://localhost:5500/db/databaseCleanGabung.json';
 
         const response = await fetch(url);
         if (!response.ok) {
@@ -228,7 +227,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 });
 
 async function fetchTopProducts() {
-    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
     return await fetch(url);
 }
 
@@ -262,7 +260,6 @@ fetchData();
 
 // ----- CHART QUANTITY PRODUCT -----
 async function fetchQuantityProduct() {
-    const url = 'http://localhost:5500/db/databaseCleanGabung.json';
 
     try {
         const response = await fetch(url);
@@ -324,6 +321,41 @@ async function fetchQuantityProduct() {
 }
 
 fetchQuantityProduct();
+
+// ---------- FILTER ----------
+//Mem-filter data pada scorecard, table, dan chart berdasarkan input user.
+
+//Deklarasi variabel
+var userFilter = [
+    document.getElementById("Location").value, 
+    document.getElementById("Product").value, 
+    document.getElementById("start_date").value, 
+    document.getElementById("end_date").value
+];
+
+const filterLocation = document.getElementById("Location");
+const filterProduct = document.getElementById("Product");
+const filterStartDate = document.getElementById("start_date");
+const filterLEndDate = document.getElementById("end_date");
+
+//Mengambil nilai dari dropdown (select) input user (eventListener)
+
+
+console.log(userFilter);
+
+//filter data JSON berdasarkan input user (Gerbang Logika)
+
+
+//Ambil hasil filter data
+
+
+//Proses hasil filter data
+
+
+//Tunjukkan pada scorecard
+
+
+//Tunjukkan pada chart
 
 
 // ---------- ABOUT -----------
