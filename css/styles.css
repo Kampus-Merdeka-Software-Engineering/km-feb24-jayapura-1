@@ -173,6 +173,7 @@ body {
   .main-container {
     grid-area: main;
     overflow-y: auto;
+    overflow-x: hidden;
     /* padding: 20px 20px 0px; */
   }
  
@@ -492,6 +493,7 @@ body {
 #our-project {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 30px;
   justify-content: center;
   margin-bottom: 10px;
 }
