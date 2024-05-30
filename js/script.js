@@ -106,6 +106,9 @@ document.addEventListener("DOMContentLoaded", async function() {
         const sortedData = sortByQuantity(groupedData);
         const itemsPerPage = 10;
         let currentPage = 1;
+        let currentSortColumn = null;
+        let currentSortDirection = 'asc';
+
 
         function displayPage(page, data) {
             const start = (page - 1) * itemsPerPage;
@@ -135,6 +138,34 @@ document.addEventListener("DOMContentLoaded", async function() {
             }
         }
 
+        function updateDataAndDisplay(searchTerm) {
+            let filteredData = sortedData;
+            if (searchTerm) {
+                searchTerm = searchTerm.toLowerCase();
+                filteredData = sortedData.filter(item => item.Product.toLowerCase().includes(searchTerm));
+            }
+            displayPage(currentPage, filteredData);
+        }
+
+        function sortData(column) {
+            if (currentSortColumn === column) {
+                currentSortDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSortDirection = 'asc';
+            }
+            currentSortColumn = column;
+            sortedData.sort((a, b) => {
+                if (column === 'Product') {
+                    if (a.Product < b.Product) return currentSortDirection === 'asc' ? -1 : 1;
+                    if (a.Product > b.Product) return currentSortDirection === 'asc' ? 1 : -1;
+                    return 0;
+                } else {
+                    return currentSortDirection === 'asc' ? a.RQty - b.RQty : b.RQty - a.RQty;
+                }
+            });
+            displayPage(currentPage, sortedData);
+        }
+
         window.goToPage = function(page) {
             const totalPages = Math.ceil(sortedData.length / itemsPerPage);
             if (page > 0 && page <= totalPages) {
@@ -142,6 +173,33 @@ document.addEventListener("DOMContentLoaded", async function() {
                 displayPage(currentPage, sortedData);
             }
         }
+
+        window.searchProduct = function() {
+            const searchInput = document.getElementById("searchInput");
+            if (searchInput) {
+                const searchTerm = searchInput.value.trim();
+                updateDataAndDisplay(searchTerm);
+            } else {
+                console.error("Element with ID 'searchInput' not found!");
+            }
+        }
+
+        // Menambahkan event listener untuk input pencarian
+        const searchInput = document.getElementById("searchInput");
+        if (searchInput) {
+            searchInput.addEventListener("input", searchProduct);
+        } else {
+            console.error("Element with ID 'searchInput' not found!");
+        }
+
+        // Menambahkan event listener ke header kolom untuk sorting
+        document.getElementById("tableContent").addEventListener("click", function(event) {
+            if (event.target.classList.contains("thProduct")) {
+                sortData('Product');
+            } else if (event.target.classList.contains("thQtt")) {
+                sortData('RQty');
+            }
+        });
 
         displayPage(currentPage, sortedData);
     } catch (error) {
