@@ -1,5 +1,5 @@
 //Definisi Variabel Global
-const url = 'http://127.0.0.1:3000/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
+const url = 'http://127.0.0.1:5500/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
 
 function toggleSidebar() {
     const stylesheet = document.getElementById('stylesheet');
@@ -129,9 +129,9 @@ document.addEventListener("DOMContentLoaded", async function() {
             if (paginationControls) {
                 const totalPages = Math.ceil(totalItems / itemsPerPage);
                 paginationControls.innerHTML = `
-                    <button onclick="goToPage(${page - 1})" ${page === 1 ? 'disabled' : ''}>Previous</button>
+                    <button class="pagination-button" onclick="goToPage(${page - 1})" ${page === 1 ? 'disabled' : ''}>Previous</button>
                     <span>Page ${page} of ${totalPages}</span>
-                    <button onclick="goToPage(${page + 1})" ${page === totalPages ? 'disabled' : ''}>Next</button>
+                    <button class="pagination-button" onclick="goToPage(${page + 1})" ${page === totalPages ? 'disabled' : ''}>Next</button>
                 `;
             } else {
                 console.error("Element with ID 'paginationControls' not found!");
@@ -588,12 +588,56 @@ function logData(data) {
 }
 
 // ---------- ABOUT -----------
-//Buka link di tab baru pada tombol Source Code
-document.getElementById("our_project-source_code").onclick = function () {
-    window.open("https://github.com/Kampus-Merdeka-Software-Engineering/km-feb24-jayapura-1");
-};
+document.addEventListener("DOMContentLoaded", function() {
+    // Buka link di tab baru pada tombol Source Code
+    document.getElementById("our_project-source_code").onclick = function() {
+        window.open("https://github.com/Kampus-Merdeka-Software-Engineering/km-feb24-jayapura-1");
+    };
 
-//Buka link di tab baru pada tombol Dataset
-document.getElementById("our_project-dataset").onclick = function () {
-    window.open("https://www.kaggle.com/datasets/awesomeasingh/vending-machine-sales");
-};
+    // Buka link di tab baru pada tombol Dataset
+    document.getElementById("our_project-dataset").onclick = function() {
+        window.open("https://www.kaggle.com/datasets/awesomeasingh/vending-machine-sales");
+    };
+});
+
+
+// ------ Modal Canvas ------
+document.addEventListener("DOMContentLoaded", function() {
+    // Dapatkan modal dan elemen terkait
+    var modal = document.getElementById("myModal");
+    var modalCanvas = document.getElementById("modalCanvas");
+    var closeBtn = document.getElementsByClassName("close")[0];
+    var originalCanvas1 = document.getElementById("myChart");
+    var originalCanvas2 = document.getElementById("myChart2");
+
+    // Fungsi untuk membuka modal dan menyalin canvas
+    function openModal(originalCanvas) {
+        modal.style.display = "block";
+        var context = modalCanvas.getContext("2d");
+        modalCanvas.width = originalCanvas.width;
+        modalCanvas.height = originalCanvas.height;
+        context.drawImage(originalCanvas, 0, 0);
+    }
+
+    // Tambahkan event listener ke canvas myChart
+    originalCanvas1.addEventListener("click", function() {
+        openModal(originalCanvas1);
+    });
+
+    // Tambahkan event listener ke canvas myChart2
+    originalCanvas2.addEventListener("click", function() {
+        openModal(originalCanvas2);
+    });
+
+    // Fungsi untuk menutup modal
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Tutup modal jika pengguna mengklik di luar modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
