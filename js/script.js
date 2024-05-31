@@ -1,5 +1,5 @@
 //Definisi Variabel Global
-const url = 'http://127.0.0.1:5500/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
+const url = 'http://127.0.0.1:3002/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
 
 function toggleSidebar() {
     const stylesheet = document.getElementById('stylesheet');
@@ -15,7 +15,7 @@ async function fetchTotalIncome() {
     try {
         //Koneksi ke data melalui URL
         const data = await connectToData(url);
-        logData(data);
+        // logData(data);
 
         // Calculate total income from the fetched data
         let totalIncome = calculateTotalIncome(data);
@@ -33,7 +33,7 @@ async function fetchSalesVolume() {
     try {
         //Koneksi ke data melalui URL
         const data = await connectToData(url);
-        logData(data);
+        // logData(data);
 
         let salesVolume = calculateSalesVolume(data)
 
@@ -51,7 +51,7 @@ async function fetchQuantitySold() {
     try {
         //Koneksi ke data melalui URL
         const data = await connectToData(url);
-        logData(data);
+        // logData(data);
 
         //Hitung Quantity of Products Sold
         let quantitySold = calculateQuantityOfProductSold(data);
@@ -95,6 +95,7 @@ async function fetchData() {
     await fetchSalesVolume();
     await fetchQuantitySold();
     await fetchCategory();
+    await populateProductOptions()
 }
 
 // ----- TOP PRODUCTS -----
@@ -244,7 +245,7 @@ async function fetchQuantityProduct() {
     try {
         const data = await connectToData(url); // Ambil data dari URL
 
-        logData(data); // Log data yang diterima
+        // logData(data); // Log data yang diterima
 
         if (Array.isArray(data)) {
             // Proses data menggunakan fungsi kalkulasi
@@ -314,7 +315,7 @@ async function filterData() {
         const { sortedPrices, quantities } = calculateQuantityOfProductSoldByPrice(filteredData);
 
         // Log data yang difilter
-        logData(filteredData);
+        // logData(filteredData);
 
         // Perbarui Scorecard & Chart
         document.getElementById('totalIncomeCard').querySelector('span').textContent = '$' + totalIncome.toFixed(2); // Total Income
@@ -388,6 +389,26 @@ async function filterData() {
     }
 }
 
+// Menambahkan isi option filter ketika halaman di load FUNCTION
+async function populateProductOptions() {
+    try {
+        const data = await connectToData(url);
+
+        const productSelect = document.getElementById('Product');
+        
+        // Mengambil data unik dari properti "Product" dan mengurutkannya
+        const products = [...new Set(data.map(item => item.Product))].sort();
+
+        products.forEach(product => {
+            const option = document.createElement('option');
+            option.value = product;
+            option.textContent = product;
+            productSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Failed to populate product options:', error);
+    }
+}
 // --- Scorecard Total Income FUNCTION ---
 function calculateTotalIncome(data) {
     let totalIncome = 0;
@@ -564,13 +585,6 @@ function createBarChart(ctx, labels, data, label, indexAxis = 'x') {
         }
     });
 }
-
-// --- Tabel Top Product FUNCTION ---
-
-
-// --- Cuantity of Product Sold Based on Price FUNCTION ---
-
-    
 
 //--- Fetch Data FUNCTION ---
 async function connectToData(url) {
