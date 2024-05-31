@@ -85,6 +85,11 @@ body {
     cursor: pointer;
     border-radius: 0px 10px 10px 0px;
   }
+
+  form.search button:hover{
+    background: #005FB1;
+    color: white;
+  }
   
   .header h2 {
     font-size: 30px;
@@ -347,12 +352,22 @@ body {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
   }
+
+  .table input[type=text]{
+    margin: 20px 20px;
+    border: 1px solid #e6e8ed;
+    background: #e6e8ed;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 7px;
+    width: 40%;
+  }
   
   #myChart {
     width: 100% !important;
     height: 500px !important;
     padding: 25px;
-}
+  }
 
   #myChart2 {
     width: 100% !important;
@@ -370,14 +385,14 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-}
+  }
 
-#paginationControls {
-  margin: 20px 20px;
-  padding-bottom: 15px;
-}
+  #paginationControls {
+    margin: 20px 20px;
+    padding-bottom: 15px;
+  }
 
-.pagination button {
+  .pagination button {
     margin: 0 5px;
     padding: 10px 20px;
     background-color: #005FB1;
@@ -385,12 +400,12 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+  }
 
-.pagination button:disabled {
+  .pagination button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
-}
+  }
 
  
   /* ---------- SCROLLBARS ---------- */
