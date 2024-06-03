@@ -20,8 +20,17 @@ async function fetchTotalIncome() {
         // Calculate total income from the fetched data
         let totalIncome = calculateTotalIncome(data);
 
-        // Update the DOM with total income
-        document.getElementById('totalIncomeCard').querySelector('span').textContent = '$'+totalIncome.toFixed(2);
+        // Format totalIncome dengan pemisah ribuan dan dua tempat desimal
+        let formattedTotalIncome = totalIncome.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+        // Perbarui DOM dengan total income yang diformat
+        document.getElementById('totalIncomeCard').querySelector('span').textContent = formattedTotalIncome;
+
 
     } catch (error) {
         console.error("Failed to display data:", error.message);
@@ -37,8 +46,11 @@ async function fetchSalesVolume() {
 
         let salesVolume = calculateSalesVolume(data)
 
-        // Update the DOM with total sales volume
-        document.getElementById('salesVolumeCard').querySelector('span').textContent = salesVolume;
+        // Format salesVolume dengan pemisah ribuan
+        let formattedSalesVolume = salesVolume.toLocaleString('en-US');
+
+        // Perbarui DOM dengan sales volume yang diformat
+        document.getElementById('salesVolumeCard').querySelector('span').textContent = formattedSalesVolume;
 
     } catch (error) {
         console.error("Failed to display data", error.message);
@@ -56,8 +68,11 @@ async function fetchQuantitySold() {
         //Hitung Quantity of Products Sold
         let quantitySold = calculateQuantityOfProductSold(data);
 
-        // Update the DOM with total quantity sold
-        document.getElementById('quantitySoldCard').querySelector('span').textContent = quantitySold;
+        // Format salesVolume dengan pemisah ribuan
+        let formattedQuantitySold = quantitySold.toLocaleString('en-US');
+
+        // Perbarui DOM dengan sales volume yang diformat
+        document.getElementById('quantitySoldCard').querySelector('span').textContent = formattedQuantitySold;
         
     } catch (error) {
         console.error("Failed to display data", error.message);
