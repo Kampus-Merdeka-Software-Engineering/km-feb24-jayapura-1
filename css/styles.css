@@ -174,84 +174,92 @@ body {
   
   
   /* ---------- MAIN ---------- */
-  
-  .main-container {
+.main-container {
     grid-area: main;
     overflow-y: auto;
     overflow-x: hidden;
-    /* padding: 20px 20px 0px; */
-  }
- 
-  #filter {
-    background-color: none;
-    display: grid;
-    grid-template-columns: repeat(3, auto 1fr);
-    gap: 5vh;
-    height: 4vh;
-    padding: 20px;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+}
 
-  #filter img {
-    height: 3vh;
+/* Filter Section */
+#filter {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scroll */
+    white-space: nowrap; /* Prevents elements from wrapping to the next line */
+    padding: 15px;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+/* Hide scrollbar */
+#filter::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+#filter {
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+
+#filter img {
+    height: 20px;
     width: auto;
-  }
+}
 
-  .filter-item {
+.filter-item {
+    display: inline-flex; /* Keeps items inline */
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-item-date_range {
     display: flex;
     align-items: center;
-    gap: 2vh;
-  }
-
-  /* Eksperimen */
-  /* TODO: padding, gap, font size, dll. harus disesuaikan dengan  filter lainnya (location, product)*/
-  .filter-item-date_range {
-    display: flex;
-    align-items: center;
-    gap: 2vh;
+    gap: 16px;
     background-color: white;
-    border-radius: 1vh;
-    padding: 1.5vh;
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.4);
     border-color: #F2F2F2;
-    font-size: 20;
-  }
+}
 
-  .filter-item-date_range input {
+.filter-item-date_range input {
     border: none;
     background-color: #F2F2F2;
-  }
+}
 
-  .filter-item option {
-    padding: 100px;
-    border-radius: 10px;
-  }
-
-  #display-area {
+.filter-item option {
     padding: 10px;
-  }
-  
-  #Location, #Product, #DateRange {
-    display: flex;
-    height: 40px;
-    width: 200px;
+    border-radius: 10px;
+    width: 200px; /* Set width of option */
+}
+
+/* #display-area {
+    padding: 10px;
+} */
+
+#Location, #Product, #DateRange {
+    height: 32px;
+    width: 200px; /* Set width of select */
     padding-inline: 15px;
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
+    border-radius: 7px;
     border-color: #F2F2F2;
-    font-size: 20;
+    font-size: 16px;
     color: #4D4D4D;
-  }
+}
 
-  .main-cards {
+#DateRange {
+    width: auto;
+}
+
+/* Cards Section */
+.main-cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    padding: 20px;
-  }
-  
-  .charts-and-table {
+    padding: 5px 20px 20px 20px;
+}
+
+.charts-and-table {
     display: grid;
     justify-content: space-between;
     align-items: flex-start;
@@ -260,60 +268,61 @@ body {
     padding: 20px;
 }
 
-  .card {
+.card {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     background-color: #C6ECFF;
     box-sizing: border-box;
-    border-radius:15px;
+    border-radius: 15px;
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.4);
     text-align: center;
     color: #00234C;
-  }
-   
-  .card > h3 {
+}
+
+.card > h3 {
     font-size: 20px;
     font-weight: 400;
-  }
+    margin: 0px;
+}
 
-  .card > span {
-    font-size: 32px;
+.card > span {
+    font-size: 28px;
     font-weight: 600;
-  }
-  
-  .charts, table {
+    padding: 12px;
+}
+
+.charts, table {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
     flex: 1;
     padding: 20px;
-  }
-  
-  .charts-card, .charts-card2, .table-card {
+}
+
+.charts-card, .charts-card2, .table-card {
     flex: 1;
     background-color: #ffffff;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.4);
     /* Atur ukuran kartu */
     width: 100%;
     height: 100%;
-  }
+}
 
-  .charts-card2, .table-card {
+.charts-card2, .table-card {
     margin-top: 30px;
-
-  }
+}
 
   table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    font-size: 18px;
+    font-size: 14px;
     text-align: left;
     justify-items: center;
   }
@@ -359,7 +368,7 @@ body {
     margin: 20px auto 0 auto;
     border: 1px solid #e6e8ed;
     background: #e6e8ed;
-    border-radius: 10px;
+    border-radius: 7px;
     font-size: 13px;
     padding: 7px;
     width: 40%;

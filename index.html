@@ -96,17 +96,19 @@
                 </div>
 
                 <!--Filter Date Range-->
-                <div class="filter-item-date_range">
+                <div class="filter-item">
                     <img src="assets\icon-filter-date_range.svg" alt="Filter Location">
-                    <!-- <select id="DateRange" onchange="filterContent(event)"> -->
+                    <div class="filter-item-date_range" id="DateRange"> 
+                        <!-- <select id="DateRange" onchange="filterContent(event)"> -->
 
-                    <!--Eksperimen date-->
-                    <!-- TODO: Edit lagi bagian ukuran, warna, padding dan warna. -->
-                        <label for="start_date">Start</label>
-                        <input id="start_date" type="date" min="2022-01-01" max="2022-12-30" name="start_date" value="">
-                        <label for="end_date">End</label>
-                        <input id="end_date" type="date" min="2022-01-01" max="2022-12-30" name="end_date" value="">
+                        <!--Eksperimen date-->
+                        <!-- TODO: Edit lagi bagian ukuran, warna, padding dan warna. -->
+                            <label for="start_date">Start</label>
+                            <input id="start_date" type="date" min="2022-01-01" max="2022-12-30" name="start_date" value="">
+                            <label for="end_date">End</label>
+                            <input id="end_date" type="date" min="2022-01-01" max="2022-12-30" name="end_date" value="">
 
+                    </div>
                 </div>
                 
             </section>
@@ -155,7 +157,7 @@
                 <!-- Charts -->
                 <section class="charts">
                     <div class="charts-card2">
-                        <label class="chart-title">Quantity of Product Sold <br/> Based on Price</label>
+                        <label class="chart-title">Quantity of Product Sold Based on Price</label>
                         <canvas id="myChart2"></canvas>
                     </div>
                 </section>
