@@ -546,10 +546,6 @@ body {
   
   /* Extra Small <= 576px */
   @media screen and (max-width: 576px) {
-    .header-left h2{
-      display: none;
-    }
-    
     .table-card, .charts-card {
       padding: 10px;
     }
