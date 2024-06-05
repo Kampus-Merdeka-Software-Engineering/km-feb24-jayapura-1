@@ -522,7 +522,24 @@ function calculateQuantityOfProductSoldByPrice(data) {
 
 // --- Buat Bar Chart FUNCTION ---
 function createBarChart(ctx, labels, data, label, indexAxis = 'x') {
-    const backgroundColor = 'rgba(0, 95, 177, 1)';
+    const baseColor = { r: 0, g: 95, b: 177 }; // Warna dasar untuk nilai tertinggi
+    const lowColor = { r: 198, g: 236, b: 255 }; // Warna untuk nilai terendah (#C6ECFF)
+
+    // Cari nilai maksimum dan minimum dari data
+    const max = Math.max(...data);
+    const min = Math.min(...data);
+
+    // Buat warna berdasarkan saturasi nilai data
+    const backgroundColors = data.map(value => {
+        const ratio = (value - min) / (max - min); // Normalisasi nilai data
+
+        // Interpolasi warna antara lowColor dan baseColor
+        const r = Math.round(lowColor.r + (baseColor.r - lowColor.r) * ratio);
+        const g = Math.round(lowColor.g + (baseColor.g - lowColor.g) * ratio);
+        const b = Math.round(lowColor.b + (baseColor.b - lowColor.b) * ratio);
+
+        return `rgba(${r}, ${g}, ${b}, 1)`;
+    });
 
     return new Chart(ctx, {
         type: 'bar',
@@ -531,7 +548,7 @@ function createBarChart(ctx, labels, data, label, indexAxis = 'x') {
             datasets: [{
                 label: label,
                 data: data,
-                backgroundColor: backgroundColor,
+                backgroundColor: backgroundColors,
             }]
         },
         options: {
@@ -620,11 +637,13 @@ function logData(data) {
 document.addEventListener("DOMContentLoaded", function() {
     // Buka link di tab baru pada tombol Source Code
     document.getElementById("our_project-source_code").onclick = function() {
+        console.log("Tombol Source Code diklik");
         window.open("https://github.com/Kampus-Merdeka-Software-Engineering/km-feb24-jayapura-1");
     };
 
     // Buka link di tab baru pada tombol Dataset
     document.getElementById("our_project-dataset").onclick = function() {
+        console.log("Tombol Source Code diklik");
         window.open("https://www.kaggle.com/datasets/awesomeasingh/vending-machine-sales");
     };
 });
