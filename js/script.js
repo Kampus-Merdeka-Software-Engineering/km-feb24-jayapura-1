@@ -1,5 +1,5 @@
 //Definisi Variabel Global
-const url = 'http://127.0.0.1:3000/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
+const url = 'http://127.0.0.1:5500/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
 
 function toggleSidebar() {
     const stylesheet = document.getElementById('stylesheet');
@@ -379,9 +379,9 @@ async function filterData() {
             if (paginationControls) {
                 const totalPages = Math.ceil(totalItems / itemsPerPage);
                 paginationControls.innerHTML = `
-                    <button onclick="goToPage(${page - 1})" ${page === 1 ? 'disabled' : ''}>Previous</button>
+                    <button class="pagination-button" onclick="goToPage(${page - 1})" ${page === 1 ? 'disabled' : ''}>Previous</button>
                     <span>Page ${page} of ${totalPages}</span>
-                    <button onclick="goToPage(${page + 1})" ${page === totalPages ? 'disabled' : ''}>Next</button>
+                    <button class="pagination-button" onclick="goToPage(${page + 1})" ${page === totalPages ? 'disabled' : ''}>Next</button>
                 `;
             } else {
                 console.error("Element with ID 'paginationControls' not found!");

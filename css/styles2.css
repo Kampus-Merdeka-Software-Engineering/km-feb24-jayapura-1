@@ -281,6 +281,19 @@ body {
   
   /* Medium <= 992px */
   @media screen and (max-width: 992px) {
+    body{
+      animation : geser ease 0.5s;
+    }
+    
+    @keyframes geser{
+      0%{
+        transform: translateX(-100%);
+      }
+      100%{
+        transform: translateX(0);
+      }
+    }
+    
     .grid-container {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
