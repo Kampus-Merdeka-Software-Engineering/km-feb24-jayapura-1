@@ -1,5 +1,5 @@
 //Definisi Variabel Global
-const url = 'http://127.0.0.1:5500/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
+const url = 'http://127.0.0.1:3000/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
 
 function toggleSidebar() {
     const stylesheet = document.getElementById('stylesheet');
@@ -632,22 +632,6 @@ async function connectToData(url) {
 function logData(data) {
     console.log(data);
 }
-
-// ---------- ABOUT -----------
-document.addEventListener("DOMContentLoaded", function() {
-    // Buka link di tab baru pada tombol Source Code
-    document.getElementById("our_project-source_code").onclick = function() {
-        console.log("Tombol Source Code diklik");
-        window.open("https://github.com/Kampus-Merdeka-Software-Engineering/km-feb24-jayapura-1");
-    };
-
-    // Buka link di tab baru pada tombol Dataset
-    document.getElementById("our_project-dataset").onclick = function() {
-        console.log("Tombol Source Code diklik");
-        window.open("https://www.kaggle.com/datasets/awesomeasingh/vending-machine-sales");
-    };
-});
-
 
 // ------ Modal Canvas ------
 document.addEventListener("DOMContentLoaded", function() {
