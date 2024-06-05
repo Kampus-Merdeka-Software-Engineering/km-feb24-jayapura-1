@@ -15,22 +15,12 @@ async function fetchTotalIncome() {
     try {
         //Koneksi ke data melalui URL
         const data = await connectToData(url);
-        // logData(data);
 
-        // Calculate total income from the fetched data
+        // Hitung total income dari data yang diambil
         let totalIncome = calculateTotalIncome(data);
 
-        // Format totalIncome dengan pemisah ribuan dan dua tempat desimal
-        let formattedTotalIncome = totalIncome.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        });
-
         // Perbarui DOM dengan total income yang diformat
-        document.getElementById('totalIncomeCard').querySelector('span').textContent = formattedTotalIncome;
-
+        updateScorecardValue('totalIncomeCard', totalIncome, true);
 
     } catch (error) {
         console.error("Failed to display data:", error.message);
@@ -40,17 +30,9 @@ async function fetchTotalIncome() {
 // ----- SCORECARD: SALES VOLUME -----
 async function fetchSalesVolume() {
     try {
-        //Koneksi ke data melalui URL
         const data = await connectToData(url);
-        // logData(data);
-
         let salesVolume = calculateSalesVolume(data)
-
-        // Format salesVolume dengan pemisah ribuan
-        let formattedSalesVolume = salesVolume.toLocaleString('en-US');
-
-        // Perbarui DOM dengan sales volume yang diformat
-        document.getElementById('salesVolumeCard').querySelector('span').textContent = formattedSalesVolume;
+        updateScorecardValue('salesVolumeCard', salesVolume);
 
     } catch (error) {
         console.error("Failed to display data", error.message);
@@ -61,22 +43,34 @@ async function fetchSalesVolume() {
 // ----- SCORECARD: QUANTITY OF PRODUCTS SOLD -----
 async function fetchQuantitySold() {
     try {
-        //Koneksi ke data melalui URL
         const data = await connectToData(url);
-        // logData(data);
-
-        //Hitung Quantity of Products Sold
         let quantitySold = calculateQuantityOfProductSold(data);
-
-        // Format salesVolume dengan pemisah ribuan
-        let formattedQuantitySold = quantitySold.toLocaleString('en-US');
-
-        // Perbarui DOM dengan sales volume yang diformat
-        document.getElementById('quantitySoldCard').querySelector('span').textContent = formattedQuantitySold;
+        updateScorecardValue('quantitySoldCard', quantitySold);
         
     } catch (error) {
         console.error("Failed to display data", error.message);
     }
+}
+
+// Fungsi untuk memformat angka dengan pemisah ribuan dan tanda dolar
+function formatCurrency(value) {
+    return value.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
+// Fungsi untuk memformat angka dengan pemisah ribuan
+function formatNumber(value) {
+    return value.toLocaleString('en-US');
+}
+
+// Fungsi untuk memperbarui DOM dengan nilai yang diformat
+function updateScorecardValue(elementId, value, isCurrency = false) {
+    const formattedValue = isCurrency ? formatCurrency(value) : formatNumber(value);
+    document.getElementById(elementId).querySelector('span').textContent = formattedValue;
 }
 
 
@@ -98,7 +92,7 @@ async function fetchCategory() {
         }
 
         // Buat chart baru
-        window.myChart = createBarChart(ctx, Object.keys(categories), Object.values(categories), 'Quantity of Category Sold', 'y');
+        window.myChart =createPieChart(ctx, Object.keys(categories), Object.values(categories));
 
     } catch (error) {
         console.error("Failed to fetch data:", error.message);
@@ -333,9 +327,9 @@ async function filterData() {
         // logData(filteredData);
 
         // Perbarui Scorecard & Chart
-        document.getElementById('totalIncomeCard').querySelector('span').textContent = '$' + totalIncome.toFixed(2); // Total Income
-        document.getElementById('salesVolumeCard').querySelector('span').textContent = salesVolume; // Sales Volume
-        document.getElementById('quantitySoldCard').querySelector('span').textContent = quantitySold; // Quantity Sold
+        updateScorecardValue('totalIncomeCard', totalIncome, true);; // Total Income
+        updateScorecardValue('salesVolumeCard', salesVolume); // Sales Volume
+        updateScorecardValue('quantitySoldCard', quantitySold); // Quantity Sold
 
         // Perbarui Chart Berdasarkan Kategori
         const ctx = document.getElementById('myChart').getContext('2d');
@@ -343,7 +337,8 @@ async function filterData() {
         if (window.myChart && typeof window.myChart.destroy === 'function') {
             window.myChart.destroy();
         }
-        window.myChart = createBarChart(ctx, Object.keys(amountOfSalesByCategory), Object.values(amountOfSalesByCategory), 'Quantity of Category Sold', 'y');
+
+        window.myChart =createPieChart(ctx, Object.keys(amountOfSalesByCategory), Object.values(amountOfSalesByCategory));
 
          // Perbarui Chart Quantity of Product Sold Based on Price
          const ctx2 = document.getElementById('myChart2').getContext('2d');
@@ -530,16 +525,24 @@ function createBarChart(ctx, labels, data, label, indexAxis = 'x') {
     const min = Math.min(...data);
 
     // Buat warna berdasarkan saturasi nilai data
-    const backgroundColors = data.map(value => {
-        const ratio = (value - min) / (max - min); // Normalisasi nilai data
+    let backgroundColors;
 
-        // Interpolasi warna antara lowColor dan baseColor
-        const r = Math.round(lowColor.r + (baseColor.r - lowColor.r) * ratio);
-        const g = Math.round(lowColor.g + (baseColor.g - lowColor.g) * ratio);
-        const b = Math.round(lowColor.b + (baseColor.b - lowColor.b) * ratio);
+    if (data.length === 1) {
+        // Jika hanya ada satu value, gunakan baseColor
+        backgroundColors = [`rgba(${baseColor.r}, ${baseColor.g}, ${baseColor.b}, 1)`];
+    } else {
+        // Interpolasi warna untuk lebih dari satu value
+        backgroundColors = data.map(value => {
+            const ratio = (value - min) / (max - min); // Normalisasi nilai data
 
-        return `rgba(${r}, ${g}, ${b}, 1)`;
-    });
+            // Interpolasi warna antara lowColor dan baseColor
+            const r = Math.round(lowColor.r + (baseColor.r - lowColor.r) * ratio);
+            const g = Math.round(lowColor.g + (baseColor.g - lowColor.g) * ratio);
+            const b = Math.round(lowColor.b + (baseColor.b - lowColor.b) * ratio);
+
+            return `rgba(${r}, ${g}, ${b}, 1)`;
+        });
+    }
 
     return new Chart(ctx, {
         type: 'bar',
@@ -554,19 +557,19 @@ function createBarChart(ctx, labels, data, label, indexAxis = 'x') {
         options: {
             responsive: true,
             maintainAspectRatio: false, // Mengatur rasio aspek tetap
-            indexAxis: indexAxis, // 'x' for vertical, 'y' for horizontal
+            indexAxis: indexAxis, // 'x' untuk vertikal, 'y' untuk horizontal
             scales: {
                 [indexAxis === 'x' ? 'y' : 'x']: {
                     beginAtZero: true,
                     grid: {
-                        display: true // Matikan (false) ata u hidupkan (true) grid
+                        display: true // Matikan (false) atau hidupkan (true) grid
                     },
                     ticks: {
-                        autoSkip: true, // Skip labels if they are too dense
-                        maxTicksLimit: 10, // Maximum number of ticks
-                        padding: 10, // Padding around the labels
+                        autoSkip: true, // Lewati label jika terlalu rapat
+                        maxTicksLimit: 10, // Jumlah maksimum ticks
+                        padding: 10, // Padding sekitar label
                         font: {
-                            size: 12 // Font size for the labels
+                            size: 12 // Ukuran font untuk label
                         }
                     }
                 },
@@ -602,6 +605,90 @@ function createBarChart(ctx, labels, data, label, indexAxis = 'x') {
                     callbacks: {
                         label: function(tooltipItem) {
                             return tooltipItem.dataset.label + ': ' + tooltipItem.raw;
+                        }
+                    }
+                },
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                    bottom: 10
+                }
+            }
+        }
+    });
+}
+
+// --- Buat Pie Chart FUNCTION ---
+function createPieChart(ctx, labels, data) {
+    const baseColor = { r: 0, g: 95, b: 177 }; // Warna dasar untuk nilai tertinggi
+    const lowColor = { r: 198, g: 236, b: 255 }; // Warna untuk nilai terendah (#C6ECFF)
+
+    // Gabungkan data dengan labels untuk memudahkan sorting
+    const combined = data.map((value, index) => ({
+        value: value,
+        label: labels[index]
+    }));
+
+    // Urutkan berdasarkan nilai dari tertinggi ke terendah
+    combined.sort((a, b) => b.value - a.value);
+
+    // Pisahkan kembali labels dan data yang telah diurutkan
+    const sortedLabels = combined.map(item => item.label);
+    const sortedData = combined.map(item => item.value);
+
+    // Cari nilai maksimum dan minimum dari data
+    const max = Math.max(...sortedData);
+    const min = Math.min(...sortedData);
+
+    // Buat warna berdasarkan saturasi nilai data
+    const backgroundColors = sortedData.map((value, index, array) => {
+        const ratio = index / (array.length - 1); // Normalisasi indeks data
+
+        // Interpolasi warna antara baseColor dan lowColor (kebalikan)
+        const r = Math.round(baseColor.r + (lowColor.r - baseColor.r) * ratio);
+        const g = Math.round(baseColor.g + (lowColor.g - baseColor.g) * ratio);
+        const b = Math.round(baseColor.b + (lowColor.b - baseColor.b) * ratio);
+
+        return `rgba(${r}, ${g}, ${b}, 1)`;
+    });
+
+    return new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: sortedLabels,
+            datasets: [{
+                data: sortedData,
+                backgroundColor: backgroundColors,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // Mengatur rasio aspek tetap
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                },
+                tooltip: {
+                    enabled: true,
+                    backgroundColor: 'rgba(0,0,0,0.8)',
+                    titleFont: {
+                        size: 14,
+                        weight: 'bold'
+                    },
+                    bodyFont: {
+                        size: 12
+                    },
+                    padding: 10,
+                    cornerRadius: 4,
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            const label = tooltipItem.label || '';
+                            const value = tooltipItem.raw || 0;
+                            return `${label}: ${value}`;
                         }
                     }
                 },
