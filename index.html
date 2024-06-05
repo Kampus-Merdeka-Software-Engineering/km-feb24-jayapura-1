@@ -78,7 +78,7 @@
                 <!--Filter Location-->
                 <div class="filter-item">
                     <img src="assets\icon-filter-location.svg" alt="Filter Location">   <!--Icon-->
-                    <select id="Location" onchange="filterContent(event)"> <!--ComboBox-->
+                    <select id="Location" onchange="filterData(event)"> <!--ComboBox-->
                         <option value="all">All Location</option>
                         <option value="GuttenPlans">GuttenPlans</option>
                         <option value="EB Public Library">EB Public Library</option>
@@ -90,7 +90,7 @@
                 <!--Filter Product-->
                 <div class="filter-item">
                     <img src="assets\icon-filter-product.svg" alt="Filter Location">
-                    <select id="Product" onchange="filterContent(event)">
+                    <select id="Product" onchange="filterData(event)">
                         <option value="all">All Product</option>
                     </select>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="filter-item">
                     <img src="assets\icon-filter-date_range.svg" alt="Filter Location">
                     <div class="filter-item-date_range" id="DateRange"> 
-                        <!-- <select id="DateRange" onchange="filterContent(event)"> -->
+                        <!-- <select id="DateRange" onchange="filterData(event)"> -->
 
                         <!--Eksperimen date-->
                         <!-- TODO: Edit lagi bagian ukuran, warna, padding dan warna. -->
@@ -134,6 +134,13 @@
             </section>
         
             <!-- Charts -->
+            <section class="charts">
+                <div class="charts-card">
+                    <label class="chart-title">Total Income per Month</label>
+                    <canvas id="myChart3" ></canvas>
+                </div>
+            </section>
+            
             <section class="charts">
                 <div class="charts-card">
                     <label class="chart-title">Amount of Sales by Category</label>

@@ -1,5 +1,5 @@
 //Definisi Variabel Global
-const url = 'http://127.0.0.1:3000/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
+const url = 'http://127.0.0.1:5500/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
 
 function toggleSidebar() {
     const stylesheet = document.getElementById('stylesheet');
@@ -104,6 +104,7 @@ async function fetchData() {
     await fetchSalesVolume();
     await fetchQuantitySold();
     await fetchCategory();
+    await fetchDataAndRenderChart();
     await populateProductOptions()
 }
 
@@ -295,15 +296,15 @@ filterEndDate.addEventListener('change', filterData)
 //Function untuk filter data berdasarkan input user
 async function filterData() {
     try {
-        //Koneksi ke data melalui URL
+        // Koneksi ke data melalui URL
         const data = await connectToData(url);
 
         // Mengambil nilai dari dropdown (select) input user (eventListener)
         var userFilter = [
-            document.getElementById("Location").value, 
-            document.getElementById("Product").value, 
-            document.getElementById("start_date").value, 
-            document.getElementById("end_date").value
+            filterLocation.value,
+            filterProduct.value,
+            filterStartDate.value,
+            filterEndDate.value
         ];
 
         // Filter data JSON berdasarkan input pengguna (Gerbang Logika)
@@ -322,32 +323,35 @@ async function filterData() {
         let quantitySold = calculateQuantityOfProductSold(filteredData);
         const amountOfSalesByCategory = calculateAmountOfSalesByCategory(filteredData);
         const { sortedPrices, quantities } = calculateQuantityOfProductSoldByPrice(filteredData);
-
-        // Log data yang difilter
-        // logData(filteredData);
+        const incomePerMonth = calculateIncomePerMonth(filteredData);
 
         // Perbarui Scorecard & Chart
-        updateScorecardValue('totalIncomeCard', totalIncome, true);; // Total Income
+        updateScorecardValue('totalIncomeCard', totalIncome, true); // Total Income
         updateScorecardValue('salesVolumeCard', salesVolume); // Sales Volume
         updateScorecardValue('quantitySoldCard', quantitySold); // Quantity Sold
 
+        // Perbarui chart berdasarkan total income per month
+        const ctx3 = document.getElementById('myChart3').getContext('2d');
+        if (window.myChart3) {
+            window.myChart3.destroy();
+        }
+        window.myChart3 = createLineChart(ctx3, Object.keys(incomePerMonth), Object.values(incomePerMonth));
+
         // Perbarui Chart Berdasarkan Kategori
         const ctx = document.getElementById('myChart').getContext('2d');
-
-        if (window.myChart && typeof window.myChart.destroy === 'function') {
+        if (window.myChart) {
             window.myChart.destroy();
         }
+        window.myChart = createPieChart(ctx, Object.keys(amountOfSalesByCategory), Object.values(amountOfSalesByCategory));
 
-        window.myChart =createPieChart(ctx, Object.keys(amountOfSalesByCategory), Object.values(amountOfSalesByCategory));
+        // Perbarui Chart Quantity of Product Sold Based on Price
+        const ctx2 = document.getElementById('myChart2').getContext('2d');
+        if (window.myChart2) {
+            window.myChart2.destroy();
+        }
+        window.myChart2 = createBarChart(ctx2, sortedPrices, quantities, 'Quantity Sold Based on Price', 'x');
 
-         // Perbarui Chart Quantity of Product Sold Based on Price
-         const ctx2 = document.getElementById('myChart2').getContext('2d');
-         if (window.myChart2 && typeof window.myChart2.destroy === 'function') {
-             window.myChart2.destroy();
-         }
-         window.myChart2 = createBarChart(ctx2, sortedPrices, quantities, 'Quantity Sold Based on Price', 'x');
-
-         // Hitung dan Tampilkan Top Products
+        // Hitung dan Tampilkan Top Products
         const groupedData = groupByProduct(filteredData);
         const sortedData = sortByQuantity(groupedData);
         const itemsPerPage = 10;
@@ -384,7 +388,7 @@ async function filterData() {
         }
 
         // Fungsi untuk navigasi halaman
-        window.goToPage = function(page) {
+        window.goToPage = function (page) {
             const totalPages = Math.ceil(sortedData.length / itemsPerPage);
             if (page > 0 && page <= totalPages) {
                 currentPage = page;
@@ -728,6 +732,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var closeBtn = document.getElementsByClassName("close")[0];
     var originalCanvas1 = document.getElementById("myChart");
     var originalCanvas2 = document.getElementById("myChart2");
+    var originalCanvas3 = document.getElementById("myChart3");
 
     // Fungsi untuk membuka modal dan menyalin canvas
     function openModal(originalCanvas) {
@@ -748,6 +753,11 @@ document.addEventListener("DOMContentLoaded", function() {
         openModal(originalCanvas2);
     });
 
+    // Tambahkan event listener ke canvas myChart3
+    originalCanvas3.addEventListener("click", function() {
+        openModal(originalCanvas3);
+    });
+
     // Fungsi untuk menutup modal
     closeBtn.onclick = function() {
         modal.style.display = "none";
@@ -760,3 +770,97 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+// --- Buat Line Chart --- //
+// Function to calculate total income per month
+function calculateIncomePerMonth(data) {
+    const incomeByMonth = {};
+
+    const monthsInOrder = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    data.forEach(item => {
+        const month = item.Month;
+        const income = item.RQty * item.RPrice;
+        
+        if (!incomeByMonth[month]) {
+            incomeByMonth[month] = 0;
+        }
+        incomeByMonth[month] += income;
+    });
+
+    // Sort  berdasarkan bulan
+    const sortedIncomeByMonth = {};
+    monthsInOrder.forEach(month => {
+        if (incomeByMonth[month]) {
+            sortedIncomeByMonth[month] = incomeByMonth[month];
+        }
+    });
+
+    return sortedIncomeByMonth;
+}
+
+// Function to fetch and process data, then render the chart
+async function fetchDataAndRenderChart() {
+    try {
+        const data = await connectToData(url);
+
+        // Calculate income per month
+        const incomePerMonth = calculateIncomePerMonth(data);
+
+        // Get canvas
+        const ctx3 = document.getElementById('myChart3').getContext('2d');
+
+        // Hapus chart sebelumnya jika ada
+        if (window.myChart3 instanceof Chart) {
+            window.myChart3.destroy();
+        }
+
+        // Buat line chart baru
+        window.myChart3 = createLineChart(ctx3, Object.keys(incomePerMonth), Object.values(incomePerMonth));
+    } catch (error) {
+        console.error('Failed to fetch data:', error);
+    }
+}
+
+function createLineChart(ctx, labels, data) {
+    return new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Total Income',
+                data: data,
+                borderColor: 'rgba(0, 95, 177, 1)',
+                backgroundColor: 'rgba(0, 95, 177, 0.2)',
+                fill: true,
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Total Income per Month'
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Month'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Income ($)'
+                    }
+                }
+            }
+        }
+    });
+}
