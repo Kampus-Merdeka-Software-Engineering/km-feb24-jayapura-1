@@ -375,9 +375,10 @@ body {
   }
   
   #myChart {
-    width: 100% !important;
+    width: auto !important;
     height: 500px !important;
     padding: 25px;
+    margin: auto;
   }
 
   #myChart2 {

@@ -282,16 +282,20 @@ fetchQuantityProduct();
 //Mem-filter data pada scorecard, table, dan chart berdasarkan input user.
 
 //Deklarasi variabel (objek UI Filter)
-const filterLocation = document.getElementById("Location");
-const filterProduct = document.getElementById("Product");
-const filterStartDate = document.getElementById("start_date");
-const filterEndDate = document.getElementById("end_date");
+document.addEventListener('DOMContentLoaded', () => {
+    const filterLocation = document.getElementById("Location");
+    const filterProduct = document.getElementById("Product");
+    const filterStartDate = document.getElementById("start_date");
+    const filterEndDate = document.getElementById("end_date");
+    
+    //Menambahkan eventListener dengan Function Filter
+    filterLocation.addEventListener('change', filterData)
+    filterProduct.addEventListener('change', filterData)
+    filterStartDate.addEventListener('change', filterData)
+    filterEndDate.addEventListener('change', filterData)
 
-//Menambahkan eventListener dengan Function Filter
-filterLocation.addEventListener('change', filterData)
-filterProduct.addEventListener('change', filterData)
-filterStartDate.addEventListener('change', filterData)
-filterEndDate.addEventListener('change', filterData)
+    filterData(); // Initial load
+});
 
 //Function untuk filter data berdasarkan input user
 async function filterData() {
@@ -300,19 +304,24 @@ async function filterData() {
         const data = await connectToData(url);
 
         // Mengambil nilai dari dropdown (select) input user (eventListener)
-        var userFilter = [
-            filterLocation.value,
-            filterProduct.value,
-            filterStartDate.value,
-            filterEndDate.value
-        ];
+        const userFilter = {
+            location: document.getElementById("Location").value,
+            product: document.getElementById("Product").value,
+            startDate: document.getElementById("start_date").value,
+            endDate: document.getElementById("end_date").value
+        };
+
+        // Convert date strings to Date Object
+        const startDate = userFilter.startDate ? new Date(userFilter.startDate) : null;
+        const endDate = userFilter.endDate ? new Date(userFilter.endDate) : null;
 
         // Filter data JSON berdasarkan input pengguna (Gerbang Logika)
         const filteredData = data.filter(item => {
-            const locationMatch = (userFilter[0] === 'all' || item.Location === userFilter[0]);
-            const productMatch = (userFilter[1] === 'all' || item.Product === userFilter[1]);
-            const startDateMatch = (!userFilter[2] || new Date(item.Date) >= new Date(userFilter[2]));
-            const endDateMatch = (!userFilter[3] || new Date(item.Date) <= new Date(userFilter[3]));
+            const itemDate = new Date(item.TransDate.split('/').reverse().join('-'));
+            const locationMatch = (userFilter.location === 'all' || item.Location === userFilter.location);
+            const productMatch = (userFilter.product === 'all' || item.Product === userFilter.product);
+            const startDateMatch = (!startDate || itemDate >= startDate);
+            const endDateMatch = (!endDate || itemDate <= endDate);
 
             return locationMatch && productMatch && startDateMatch && endDateMatch;
         });
