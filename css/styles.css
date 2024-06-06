@@ -294,12 +294,16 @@ body {
     padding: 12px;
 }
 
-.charts, table {
+.charts, .charts2, table {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
     flex: 1;
     padding: 20px;
+}
+
+.charts2 {
+  padding: 0px !important;
 }
 
 .charts-card, .charts-card2, .table-card {
@@ -314,14 +318,9 @@ body {
     height: 100%;
 }
 
-.charts-card2, .table-card {
-    margin-top: 30px;
-}
-
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
     font-size: 14px;
     text-align: left;
     justify-items: center;
@@ -374,16 +373,9 @@ body {
     width: 40%;
   }
   
-  #myChart {
-    width: auto !important;
-    height: 500px !important;
-    padding: 25px;
-    margin: auto;
-  }
-
-  #myChart2 {
+  #myChart, #myChart2, #myChart3 {
     width: 100% !important;
-    height: 430px !important;
+    height: 500px !important;
     padding: 25px;
   }
 
@@ -400,7 +392,6 @@ body {
   }
 
   #paginationControls {
-    margin: 20px 20px;
     padding-bottom: 15px;
     text-align: center;
     justify-content: center;
@@ -539,15 +530,14 @@ body {
       margin-bottom: 0;
     }
   
-    .charts {
+    .charts-and-table {
       grid-template-columns: 1fr;
-      /* margin-top: 30px; */
     }
   }
   
   /* Extra Small <= 576px */
   @media screen and (max-width: 576px) {
-    .table-card, .charts-card {
+    .table-card, .charts-card2 {
       padding: 10px;
     }
 
