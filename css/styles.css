@@ -263,9 +263,7 @@ body {
     display: grid;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px;
     grid-template-columns: 1fr 1fr;
-    padding: 20px;
 }
 
 .card {
@@ -302,8 +300,8 @@ body {
     padding: 20px;
 }
 
-.charts2 {
-  padding: 0px !important;
+.charts2, .table {
+  padding: 20px !important;
 }
 
 .charts-card, .charts-card2, .table-card {
@@ -321,7 +319,7 @@ body {
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 12px;
     text-align: left;
     justify-items: center;
   }
@@ -456,6 +454,9 @@ body {
     cursor: pointer;
   }
 
+  .chart-modal:hover {
+    cursor: pointer;
+  }
  
   /* ---------- SCROLLBARS ---------- */
   
@@ -537,10 +538,6 @@ body {
   
   /* Extra Small <= 576px */
   @media screen and (max-width: 576px) {
-    .table-card, .charts-card2 {
-      padding: 10px;
-    }
-
     table {
         font-size: 14px;
     }

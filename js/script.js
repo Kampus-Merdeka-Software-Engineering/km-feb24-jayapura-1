@@ -1,5 +1,5 @@
 //Definisi Variabel Global
-const url = 'http://127.0.0.1:5500/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
+const url = 'http://127.0.0.1:5501/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
 
 function toggleSidebar() {
     const stylesheet = document.getElementById('stylesheet');
@@ -341,21 +341,21 @@ async function filterData() {
 
         // Perbarui chart berdasarkan total income per month
         const ctx3 = document.getElementById('myChart3').getContext('2d');
-        if (window.myChart3) {
+        if (window.myChart3 instanceof Chart) {
             window.myChart3.destroy();
         }
         window.myChart3 = createLineChart(ctx3, Object.keys(incomePerMonth), Object.values(incomePerMonth));
 
         // Perbarui Chart Berdasarkan Kategori
         const ctx = document.getElementById('myChart').getContext('2d');
-        if (window.myChart) {
+        if (window.myChart instanceof Chart) {
             window.myChart.destroy();
         }
         window.myChart = createPieChart(ctx, Object.keys(amountOfSalesByCategory), Object.values(amountOfSalesByCategory));
 
         // Perbarui Chart Quantity of Product Sold Based on Price
         const ctx2 = document.getElementById('myChart2').getContext('2d');
-        if (window.myChart2) {
+        if (window.myChart2 instanceof Chart) {
             window.myChart2.destroy();
         }
         window.myChart2 = createBarChart(ctx2, sortedPrices, quantities, 'Quantity Sold Based on Price', 'x');
@@ -743,6 +743,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var originalCanvas2 = document.getElementById("myChart2");
     var originalCanvas3 = document.getElementById("myChart3");
 
+    // Variabel untuk menyimpan referensi ke chart yang aktif
+    var activeChart = null;
+
     // Fungsi untuk membuka modal dan menyalin canvas
     function openModal(originalCanvas) {
         modal.style.display = "block";
@@ -750,32 +753,31 @@ document.addEventListener("DOMContentLoaded", function() {
         modalCanvas.width = originalCanvas.width;
         modalCanvas.height = originalCanvas.height;
         context.drawImage(originalCanvas, 0, 0);
+
+        // Inisialisasi ulang chart di canvas modal dengan konfigurasi yang sama
+        const chartId = originalCanvas.id;
+        const chartConfig = window[chartId].config;
+        activeChart = new Chart(modalCanvas, chartConfig);
     }
 
-    // Tambahkan event listener ke canvas myChart
-    originalCanvas1.addEventListener("click", function() {
-        openModal(originalCanvas1);
-    });
+    // Tambahkan event listener ke masing-masing canvas yang menunjukkan bahwa chart dapat diklik
+    [originalCanvas1, originalCanvas2, originalCanvas3].forEach(function(canvas) {
+        canvas.addEventListener("mouseover", function() {
+            this.style.cursor = "pointer";
+        });
 
-    // Tambahkan event listener ke canvas myChart2
-    originalCanvas2.addEventListener("click", function() {
-        openModal(originalCanvas2);
-    });
-
-    // Tambahkan event listener ke canvas myChart3
-    originalCanvas3.addEventListener("click", function() {
-        openModal(originalCanvas3);
+        canvas.addEventListener("click", function() {
+            openModal(this);
+        });
     });
 
     // Fungsi untuk menutup modal
     closeBtn.onclick = function() {
         modal.style.display = "none";
-    }
-
-    // Tutup modal jika pengguna mengklik di luar modal
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        // Hancurkan chart yang aktif saat modal ditutup
+        if (activeChart) {
+            activeChart.destroy();
+            activeChart = null;
         }
     }
 });
@@ -786,6 +788,7 @@ function calculateIncomePerMonth(data) {
     const incomeByMonth = {};
 
     const monthsInOrder = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthAbbreviations = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     data.forEach(item => {
         const month = item.Month;
@@ -799,9 +802,9 @@ function calculateIncomePerMonth(data) {
 
     // Sort  berdasarkan bulan
     const sortedIncomeByMonth = {};
-    monthsInOrder.forEach(month => {
+    monthsInOrder.forEach((month, index) => {
         if (incomeByMonth[month]) {
-            sortedIncomeByMonth[month] = incomeByMonth[month];
+            sortedIncomeByMonth[monthAbbreviations[index]] = incomeByMonth[month];
         }
     });
 
@@ -823,7 +826,7 @@ async function fetchDataAndRenderChart() {
         if (window.myChart3 instanceof Chart) {
             window.myChart3.destroy();
         }
-
+        
         // Buat line chart baru
         window.myChart3 = createLineChart(ctx3, Object.keys(incomePerMonth), Object.values(incomePerMonth));
     } catch (error) {
@@ -847,13 +850,21 @@ function createLineChart(ctx, labels, data) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    position: 'top',
+                    display: false,
                 },
                 title: {
                     display: true,
                     text: 'Total Income per Month'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': $' + context.parsed.y.toFixed(2);
+                        }
+                    }
                 }
             },
             scales: {
@@ -869,6 +880,10 @@ function createLineChart(ctx, labels, data) {
                         text: 'Income ($)'
                     }
                 }
+            },
+            interaction: {
+                mode: 'index', 
+                intersect: false // Nonaktifkan intersect untuk memperbesar jangkauan tooltip
             }
         }
     });
