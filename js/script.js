@@ -1,5 +1,5 @@
 //Definisi Variabel Global
-const url = 'http://127.0.0.1:5501/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
+const url = 'http://127.0.0.1:3000/db/databaseCleanGabung.json'; //Ganti url untuk tunjukkan chart & scorecard.
 
 function toggleSidebar() {
     const stylesheet = document.getElementById('stylesheet');
@@ -652,20 +652,21 @@ function createPieChart(ctx, labels, data) {
     const sortedLabels = combined.map(item => item.label);
     const sortedData = combined.map(item => item.value);
 
-    // Cari nilai maksimum dan minimum dari data
-    const max = Math.max(...sortedData);
-    const min = Math.min(...sortedData);
-
     // Buat warna berdasarkan saturasi nilai data
     const backgroundColors = sortedData.map((value, index, array) => {
-        const ratio = index / (array.length - 1); // Normalisasi indeks data
+        if (array.length === 1) {
+            // Jika hanya ada satu nilai, gunakan warna dasar
+            return `rgba(${baseColor.r}, ${baseColor.g}, ${baseColor.b}, 1)`;
+        } else {
+            const ratio = index / (array.length - 1); // Normalisasi indeks data
 
-        // Interpolasi warna antara baseColor dan lowColor (kebalikan)
-        const r = Math.round(baseColor.r + (lowColor.r - baseColor.r) * ratio);
-        const g = Math.round(baseColor.g + (lowColor.g - baseColor.g) * ratio);
-        const b = Math.round(baseColor.b + (lowColor.b - baseColor.b) * ratio);
+            // Interpolasi warna antara baseColor dan lowColor (kebalikan)
+            const r = Math.round(baseColor.r + (lowColor.r - baseColor.r) * ratio);
+            const g = Math.round(baseColor.g + (lowColor.g - baseColor.g) * ratio);
+            const b = Math.round(baseColor.b + (lowColor.b - baseColor.b) * ratio);
 
-        return `rgba(${r}, ${g}, ${b}, 1)`;
+            return `rgba(${r}, ${g}, ${b}, 1)`;
+        }
     });
 
     return new Chart(ctx, {
@@ -856,7 +857,7 @@ function createLineChart(ctx, labels, data) {
                     display: false,
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: 'Total Income per Month'
                 },
                 tooltip: {
